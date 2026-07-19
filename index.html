@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FTH Wire Services — Send Money Abroad Without the Bank Markup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="ticker-bar">
+    <div class="ticker-track" id="ticker-track">
+      <div class="ticker-item" data-pair="USD"><span class="pair">INR / USD</span><span class="rate mono">83.14</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="GBP"><span class="pair">INR / GBP</span><span class="rate mono">106.82</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="EUR"><span class="pair">INR / EUR</span><span class="rate mono">90.47</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="CAD"><span class="pair">INR / CAD</span><span class="rate mono">60.35</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="AUD"><span class="pair">INR / AUD</span><span class="rate mono">55.21</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="SGD"><span class="pair">INR / SGD</span><span class="rate mono">61.98</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="USD"><span class="pair">INR / USD</span><span class="rate mono">83.14</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="GBP"><span class="pair">INR / GBP</span><span class="rate mono">106.82</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="EUR"><span class="pair">INR / EUR</span><span class="rate mono">90.47</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="CAD"><span class="pair">INR / CAD</span><span class="rate mono">60.35</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="AUD"><span class="pair">INR / AUD</span><span class="rate mono">55.21</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="SGD"><span class="pair">INR / SGD</span><span class="rate mono">61.98</span><span class="mono arrow">–</span></div>
+    </div>
+  </div>
+  <div id="rate-status" style="text-align:center; background:var(--navy-2); color:#8E9BAF; font-family:'IBM Plex Mono'; font-size:11px; padding:4px 0; letter-spacing:0.03em;">Loading live rates…</div>
+
+  <header>
+    <div class="wrap nav-row">
+      <a href="index.html" class="logo">FTH <span>Wire Services</span></a>
+      <nav class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#forex-card">Forex Card</a>
+        <a href="#remittance">Outward Remittance</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:08448289666" class="phone-link">084482 89666</a>
+        <a href="contact.html" class="btn btn-gold">Request Callback</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Est. 2011 · Delhi-based</span>
+        <h1>Paying a university<br>fee abroad? Don't<br>go through your <em>bank.</em></h1>
+        <p class="lead">We're a small forex team that helps students and families compare rates from banks and RBI-authorised exchange houses before sending money abroad. Most people save 3-5% just by not using their bank's counter rate.</p>
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn btn-gold">Get a Rate Quote</a>
+          <a href="#process" class="btn btn-outline" style="color:#F7F3EA; border-color:#F7F3EA;">How It Works</a>
+        </div>
+        <div class="hero-note">Most university transfers land within 48 working hours. Some take a bit longer depending on the receiving bank.</div>
+      </div>
+      <div class="rate-card">
+        <h4>Today's Rates</h4>
+        <div class="rate-row">
+          <div><span class="dest">United States</span><span class="sub">1 USD</span></div>
+          <div class="val mono" data-rate="USD">₹83.14</div>
+        </div>
+        <div class="rate-row">
+          <div><span class="dest">United Kingdom</span><span class="sub">1 GBP</span></div>
+          <div class="val mono" data-rate="GBP">₹106.82</div>
+        </div>
+        <div class="rate-row">
+          <div><span class="dest">Canada</span><span class="sub">1 CAD</span></div>
+          <div class="val mono" data-rate="CAD">₹60.35</div>
+        </div>
+        <div class="rate-row">
+          <div><span class="dest">Australia</span><span class="sub">1 AUD</span></div>
+          <div class="val mono" data-rate="AUD">₹55.21</div>
+        </div>
+        <p class="foot-note" id="hero-rate-note">Fetching live mid-market rate…</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="wrap stats-row">
+      <div class="stat">
+        <div class="num">₹1,000 Cr+</div>
+        <div class="label">exchanged so far</div>
+      </div>
+      <div class="stat">
+        <div class="num">1,53,865+</div>
+        <div class="label">students served</div>
+      </div>
+      <div class="stat">
+        <div class="num">3,000+</div>
+        <div class="label">corporates & tour operators</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="pad" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What we actually do</h2>
+        <p>Three things, mostly. If your need doesn't fit neatly into one of these, just call us — we'll tell you honestly if we can help or not.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-num">01</span>
+          <h3>University Fee Payments</h3>
+          <p>This is what most of our customers come to us for. Book online, get your KYC verified (we can send someone to your home in Delhi NCR, or you can walk into most partner branches), and we transfer via NEFT/RTGS. Universities are usually credited within 2 working days, sometimes a day more if their bank is slow on their end.</p>
+          <a href="#process">See the process</a>
+        </div>
+        <div class="service-card" id="forex-card">
+          <span class="service-num">02</span>
+          <h3>Forex Travel Card</h3>
+          <p>Load a few currencies on one card before you travel. Simpler than carrying cash.</p>
+          <a href="contact.html">Ask about a card</a>
+        </div>
+        <div class="service-card" id="remittance">
+          <span class="service-num">03</span>
+          <h3>Outward Remittance</h3>
+          <p>Sending money to family abroad, or paying a supplier overseas — same rate comparison, same paperwork, different destination account.</p>
+          <a href="contact.html">Send money</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="process-wrap" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How a tuition payment actually goes</h2>
+        <p>Same four steps whether it's tuition or a personal remittance. Only the destination account changes.</p>
+      </div>
+      <div class="process-grid">
+        <div class="step">
+          <span class="step-num">01</span>
+          <h4>Compare</h4>
+          <p>Tell us the amount and where you're sending it. We show you rates from a few banks and RBI-authorised exchange houses near you.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <h4>Book & verify</h4>
+          <p>Pick a rate, book online, send over your KYC docs.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <h4>Transfer funds</h4>
+          <p>You send the amount to the exchange house/bank as NEFT or RTGS — usual net banking, nothing unusual.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <h4>Delivered</h4>
+          <p>We initiate the wire. University side usually shows the credit within 48 working hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="pad">
+    <div class="wrap kyc">
+      <div>
+        <div class="section-head" style="margin-bottom:28px;">
+          <h2 style="font-size:30px;">Documents you'll need</h2>
+        </div>
+        <ul class="kyc-list">
+          <li><span class="mark"></span> University letter or prospectus showing the fee amount</li>
+          <li><span class="mark"></span> Indian passport copy of the student</li>
+          <li><span class="mark"></span> ID proof of the sender — Aadhaar, driving licence, voter ID, or passport</li>
+          <li><span class="mark"></span> PAN card of the sender</li>
+        </ul>
+        <p class="kyc-note">The sender can be the student or a parent — the amount must come from the sender's own account.</p>
+      </div>
+      <div class="kyc-card">
+        <h3>Not sure which documents you need?</h3>
+        <p>Send us your university's fee letter and we'll confirm exactly what's required for your specific transfer, before you start the KYC process.</p>
+        <div style="margin-top:22px;">
+          <a href="contact.html" class="btn btn-gold">Ask Us First</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad" style="background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:40px;">
+        <h2>A few things people ask about</h2>
+      </div>
+      <div class="why-grid">
+        <ul class="why-list">
+          <li><strong>Rates you can actually compare.</strong> We show quotes from a few banks and exchange houses side by side, so you're not just taking whatever number your bank gives you.</li>
+          <li><strong>KYC without standing in a queue.</strong> Someone can come to your home for document verification if you're in Delhi NCR — otherwise it's at the nearest partner branch.</li>
+          <li><strong>We tell you the real timeline.</strong> 48 working hours is typical, not guaranteed. Some receiving banks are just slower, and we'll say so upfront.</li>
+        </ul>
+        <div class="testimonials">
+          <div class="testimonial">
+            <p>"Was paying my daughter's first semester fee to a university in Melbourne. Rate was better than what my bank quoted and someone came home for the KYC, which saved a trip."</p>
+            <span class="who">— Ramesh Iyer, parent, Rohini</span>
+          </div>
+          <div class="testimonial">
+            <p>"Straightforward process, though the transfer to my university in Canada took closer to 4 days, not 2 — bank on their end was slow. FTH kept me updated at least."</p>
+            <span class="who">— Ananya Sharma, student</span>
+          </div>
+          <div class="testimonial">
+            <p>"Been using them for remittances to my brother in Dubai for a couple of years now. Nothing fancy, just works."</p>
+            <span class="who">— Vikram Nair</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad" id="faq">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:36px;">
+        <h2>Questions we get a lot</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h4>Is there a minimum amount?</h4>
+          <p>No fixed minimum for tuition payments. For personal remittance there's sometimes a practical floor depending on which exchange house gives the best rate that day — we'll tell you at the time.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do you have a branch I can walk into?</h4>
+          <p>We work through a network of RBI-authorised exchange house partners rather than running our own branches everywhere, so the nearest option depends on your location. Call us and we'll point you to the closest one.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What if my university needs the money faster than 48 hours?</h4>
+          <p>Tell us upfront — some routes are faster than others depending on the destination country and receiving bank. We'll be honest if a tight deadline isn't realistic rather than promise something we can't deliver.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can the sender be someone other than the student?</h4>
+          <p>Yes — usually a parent. The money just needs to come from the sender's own bank account, and their ID/PAN go with the KYC.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band" id="contact">
+    <div class="wrap cta-row">
+      <h2>Got a fee payment coming up? Call us before you go to the bank.</h2>
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="tel:08447786270" class="btn" style="background:var(--navy); color:var(--paper);">Call 084477 86270</a>
+        <a href="mailto:info@fthwireservices.com" class="btn btn-outline">Email Us</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap foot-grid">
+      <div>
+        <span class="foot-logo">FTH Wire Services</span>
+        <p>We help students and families in Delhi NCR pay university fees abroad and send remittances, at a better rate than most bank counters.</p>
+      </div>
+      <div>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#forex-card">Forex Travel Card</a></li>
+          <li><a href="#remittance">Outward Remittance</a></li>
+          <li><a href="#process">How It Works</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:08448289666">084482 89666</a></li>
+          <li><a href="mailto:info@fthwireservices.com">info@fthwireservices.com</a></li>
+          <li style="color:#7E8AA0;">Mon–Sat, 10am–7pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap foot-bottom">
+      <span>© 2026 FTH Wire Services.</span>
+      <span>Rates shown are indicative and update roughly every minute — your booked rate is locked in at the time of transfer.</span>
+    </div>
+  </footer>
+
+  <script src="rates.js"></script>
+</body>
+</html>

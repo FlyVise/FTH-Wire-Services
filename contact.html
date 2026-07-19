@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us — FTH Wire Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="ticker-bar">
+    <div class="ticker-track" id="ticker-track">
+      <div class="ticker-item" data-pair="USD"><span class="pair">INR / USD</span><span class="rate mono">83.14</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="GBP"><span class="pair">INR / GBP</span><span class="rate mono">106.82</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="EUR"><span class="pair">INR / EUR</span><span class="rate mono">90.47</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="CAD"><span class="pair">INR / CAD</span><span class="rate mono">60.35</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="AUD"><span class="pair">INR / AUD</span><span class="rate mono">55.21</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="SGD"><span class="pair">INR / SGD</span><span class="rate mono">61.98</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="USD"><span class="pair">INR / USD</span><span class="rate mono">83.14</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="GBP"><span class="pair">INR / GBP</span><span class="rate mono">106.82</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="EUR"><span class="pair">INR / EUR</span><span class="rate mono">90.47</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="CAD"><span class="pair">INR / CAD</span><span class="rate mono">60.35</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="AUD"><span class="pair">INR / AUD</span><span class="rate mono">55.21</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="SGD"><span class="pair">INR / SGD</span><span class="rate mono">61.98</span><span class="mono arrow">–</span></div>
+    </div>
+  </div>
+  <div id="rate-status" style="text-align:center; background:var(--navy-2); color:#8E9BAF; font-family:'IBM Plex Mono'; font-size:11px; padding:4px 0; letter-spacing:0.03em;">Loading live rates…</div>
+
+  <header>
+    <div class="wrap nav-row">
+      <a href="index.html" class="logo">FTH <span>Wire Services</span></a>
+      <nav class="links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#forex-card">Forex Card</a>
+        <a href="index.html#remittance">Outward Remittance</a>
+        <a href="contact.html" class="current">Contact Us</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:08448289666" class="phone-link">084482 89666</a>
+        <a href="tel:08448289666" class="btn btn-gold">Call Now</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Contact Us</div>
+      <h1>Talk to a real person, not a form that goes nowhere.</h1>
+      <p>Send us your amount and destination, or just call — whichever's easier. Someone from the team replies within the same business day, usually a lot sooner.</p>
+    </div>
+  </section>
+
+  <section class="contact-wrap">
+    <div class="wrap contact-grid">
+
+      <div class="info-card">
+        <h3>Reach us directly</h3>
+        <p class="sub">No call centre, no queue — you'll speak to someone who actually books transfers.</p>
+        <ul class="info-list">
+          <li>
+            <span class="ilabel">Call</span>
+            <span class="ival"><a href="tel:08448289666">084482 89666</a><br><a href="tel:08447786270">084477 86270</a></span>
+          </li>
+          <li>
+            <span class="ilabel">Email</span>
+            <span class="ival"><a href="mailto:info@fthwireservices.com">info@fthwireservices.com</a></span>
+          </li>
+          <li>
+            <span class="ilabel">Hours</span>
+            <span class="ival">Mon–Sat, 10am–7pm IST<br>Closed Sundays &amp; public holidays</span>
+          </li>
+          <li>
+            <span class="ilabel">Area</span>
+            <span class="ival">Delhi NCR, with home KYC visits available. Partner branches elsewhere in India — ask us for the nearest one.</span>
+          </li>
+        </ul>
+        <p class="info-note">Sending a big amount or working to a tight deadline? Call rather than email — it's faster for us to check live rates and route options with you on the phone.</p>
+      </div>
+
+      <div class="form-panel">
+        <h3>Or send us the details</h3>
+        <p class="sub">Fill this in and it'll open in your email app, addressed to us — nothing gets sent without you hitting send there.</p>
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input type="text" id="f-name" required>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone number</label>
+              <input type="tel" id="f-phone" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email">
+            </div>
+            <div class="field">
+              <label for="f-topic">This is about</label>
+              <select id="f-topic">
+                <option>University fee payment</option>
+                <option>Forex travel card</option>
+                <option>Outward remittance</option>
+                <option>Something else</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-amount">Approx. amount</label>
+              <input type="text" id="f-amount" placeholder="e.g. 12,000 USD">
+            </div>
+            <div class="field">
+              <label for="f-dest">Destination country</label>
+              <input type="text" id="f-dest" placeholder="e.g. Canada">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-message">Anything else we should know</label>
+            <textarea id="f-message" placeholder="Deadline, university name, questions about documents — whatever's relevant."></textarea>
+          </div>
+          <div class="form-foot">
+            <p class="form-note">We'll get back to you the same working day, usually within a couple of hours.</p>
+            <button type="submit" class="btn btn-gold">Send Enquiry</button>
+          </div>
+          <p id="form-status"></p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="map-band">
+    <div class="wrap map-row">
+      <div>
+        <h3>Where we operate</h3>
+        <p>Based in Delhi, working across NCR directly and the rest of India through partner exchange houses. If you're not sure whether we cover your city, just ask — it takes one phone call to find out.</p>
+        <div class="area-tags">
+          <span class="area-tag">Delhi</span>
+          <span class="area-tag">Gurugram</span>
+          <span class="area-tag">Noida</span>
+          <span class="area-tag">Faridabad</span>
+          <span class="area-tag">Ghaziabad</span>
+          <span class="area-tag">+ partner branches PAN-India</span>
+        </div>
+      </div>
+      <div class="hours-card">
+        <h4>Office hours</h4>
+        <div class="hours-row"><span class="d">Monday – Friday</span><span class="t">10:00 – 19:00</span></div>
+        <div class="hours-row"><span class="d">Saturday</span><span class="t">10:00 – 17:00</span></div>
+        <div class="hours-row"><span class="d">Sunday</span><span class="t">Closed</span></div>
+        <div class="hours-row"><span class="d">Public holidays</span><span class="t">Closed</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot-grid">
+      <div>
+        <span class="foot-logo">FTH Wire Services</span>
+        <p>We help students and families in Delhi NCR pay university fees abroad and send remittances, at a better rate than most bank counters.</p>
+      </div>
+      <div>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#forex-card">Forex Travel Card</a></li>
+          <li><a href="index.html#remittance">Outward Remittance</a></li>
+          <li><a href="index.html#process">How It Works</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:08448289666">084482 89666</a></li>
+          <li><a href="mailto:info@fthwireservices.com">info@fthwireservices.com</a></li>
+          <li style="color:#7E8AA0;">Mon–Sat, 10am–7pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap foot-bottom">
+      <span>© 2026 FTH Wire Services.</span>
+      <span>Rates shown are indicative and update roughly every minute — your booked rate is locked in at the time of transfer.</span>
+    </div>
+  </footer>
+
+  <script src="rates.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('f-name').value.trim();
+      var phone = document.getElementById('f-phone').value.trim();
+      var email = document.getElementById('f-email').value.trim();
+      var topic = document.getElementById('f-topic').value;
+      var amount = document.getElementById('f-amount').value.trim();
+      var dest = document.getElementById('f-dest').value.trim();
+      var message = document.getElementById('f-message').value.trim();
+
+      var subject = 'Enquiry: ' + topic + (name ? ' — ' + name : '');
+      var bodyLines = [
+        'Name: ' + name,
+        'Phone: ' + phone,
+        'Email: ' + (email || '(not provided)'),
+        'Enquiry type: ' + topic,
+        'Approx. amount: ' + (amount || '(not provided)'),
+        'Destination country: ' + (dest || '(not provided)'),
+        '',
+        'Message:',
+        message || '(none)'
+      ];
+      var mailto = 'mailto:info@fthwireservices.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+      window.location.href = mailto;
+
+      var statusEl = document.getElementById('form-status');
+      statusEl.textContent = 'Opening your email app with these details filled in — just hit send there.';
+      statusEl.className = 'show';
+    });
+  </script>
+</body>
+</html>
