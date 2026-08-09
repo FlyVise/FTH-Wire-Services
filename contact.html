@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact Us — FTH Wire Services</title>
 <meta name="description" content="Get in touch with FTH Wire Services for university fee payments, forex travel cards, and outward remittance. Call, email, or send an enquiry — Delhi NCR based with doorstep KYC.">
@@ -54,7 +55,7 @@
   </header>
 
   <section class="page-hero">
-    <div class="wrap">
+    <div class="wrap reveal">
       <div class="breadcrumb"><a href="index.html">Home</a> / Contact Us</div>
       <h1>Talk to a real person, not a form that goes nowhere.</h1>
       <p>Send us your amount and destination, or just call — whichever's easier. Someone from the team replies within the same business day, usually a lot sooner.</p>
@@ -62,12 +63,12 @@
   </section>
 
   <section class="contact-wrap">
-    <div class="wrap contact-grid">
+    <div class="wrap contact-grid reveal-group">
 
       <div class="info-card">
         <h3>Reach us directly</h3>
         <p class="sub">No call centre, no queue — you'll speak to someone who actually books transfers.</p>
-        <ul class="info-list">
+        <ul class="info-list reveal-group">
           <li>
             <span class="ilabel">Call</span>
             <span class="ival"><a href="tel:08448289666">084482 89666</a><br><a href="tel:08447786270">084477 86270</a></span>
@@ -143,11 +144,11 @@
   </section>
 
   <section class="map-band">
-    <div class="wrap map-row">
+    <div class="wrap map-row reveal-group">
       <div>
         <h3>Where we operate</h3>
         <p>Based in Delhi, working across NCR directly and the rest of India through partner exchange houses. If you're not sure whether we cover your city, just ask — it takes one phone call to find out.</p>
-        <div class="area-tags">
+        <div class="area-tags reveal-group">
           <span class="area-tag">Delhi</span>
           <span class="area-tag">Gurugram</span>
           <span class="area-tag">Noida</span>
@@ -205,6 +206,7 @@
 
   <script src="rates.js"></script>
   <script src="nav.js"></script>
+  <script src="animations.js"></script>
   <script>
     document.getElementById('contact-form').addEventListener('submit', function(e){
       e.preventDefault();
