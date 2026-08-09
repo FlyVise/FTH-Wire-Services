@@ -69,6 +69,31 @@ img{max-width:100%; display:block;}
   .ticker-track{animation:none;}
 }
 
+/* ---------- Scroll animations ---------- */
+/* .js is set by an inline script in <head>; without it (JS disabled/blocked)
+   reveal targets stay fully visible instead of being permanently hidden. */
+.js .reveal,
+.js .reveal-group > *{
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+}
+:where(.js) .reveal.in-view,
+:where(.js) .reveal-group.in-view > *{
+  opacity:1;
+  transform:translateY(0);
+}
+.js .reveal-group.in-view > *:nth-child(1){transition-delay:0ms;}
+.js .reveal-group.in-view > *:nth-child(2){transition-delay:90ms;}
+.js .reveal-group.in-view > *:nth-child(3){transition-delay:180ms;}
+.js .reveal-group.in-view > *:nth-child(4){transition-delay:270ms;}
+.js .reveal-group.in-view > *:nth-child(5){transition-delay:360ms;}
+.js .reveal-group.in-view > *:nth-child(6){transition-delay:450ms;}
+@media (prefers-reduced-motion: reduce){
+  .js .reveal,
+  .js .reveal-group > *{transition:none; opacity:1; transform:none;}
+}
+
 /* ---------- Header ---------- */
 header{
   background:var(--paper);
@@ -92,20 +117,29 @@ header{
 nav.links{display:flex; gap:34px; list-style:none; margin:0; padding:0;}
 nav.links a{
   text-decoration:none; color:var(--ink-soft); font-size:14.5px; font-weight:500;
-  position:relative; padding-bottom:3px;
+  position:relative; padding-bottom:3px; transition:color .2s ease;
+}
+nav.links a::after{
+  content:""; position:absolute; left:0; right:100%; bottom:0; height:2px;
+  background:var(--gold); transition:right .25s cubic-bezier(.16,1,.3,1);
 }
 nav.links a:hover{color:var(--navy);}
+nav.links a:hover::after, nav.links a.current::after{right:0;}
 nav.links a.current{color:var(--navy);}
 .nav-right{display:flex; align-items:center; gap:22px;}
 .phone-link{
   font-family:'IBM Plex Mono'; font-size:14px; font-weight:600; color:var(--navy);
-  text-decoration:none; white-space:nowrap;
+  text-decoration:none; white-space:nowrap; transition:color .2s ease;
 }
+.phone-link:hover{color:var(--gold);}
 .btn{
   display:inline-block; text-decoration:none; font-weight:600; font-size:14px;
-  padding:11px 22px; border-radius:2px; transition:transform .15s ease, box-shadow .15s ease;
+  padding:11px 22px; border-radius:2px;
+  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
   border:none; cursor:pointer; font-family:'IBM Plex Sans', sans-serif;
 }
+.btn:hover{transform:translateY(-2px); box-shadow:0 10px 22px rgba(15,30,51,0.16);}
+.btn:active{transform:translateY(0); box-shadow:none;}
 .btn-gold{background:var(--gold); color:var(--navy);}
 .btn-gold:hover{background:var(--gold-2);}
 .btn-outline{border:1.5px solid var(--navy); color:var(--navy); background:none;}
@@ -195,15 +229,19 @@ section.pad{padding:96px 0;}
 .service-card{
   padding:38px 32px; border-right:1px solid var(--line);
   background:var(--paper);
+  transition:background-color .25s ease, transform .25s ease;
 }
 .service-card:last-child{border-right:none;}
+.service-card:hover{background:var(--paper-2); transform:translateY(-4px);}
 .service-num{font-family:'IBM Plex Mono'; color:var(--gold); font-size:13px; font-weight:600;}
 .service-card h3{font-size:21px; margin:14px 0 12px;}
 .service-card p{color:var(--ink-soft); font-size:14.5px; margin-bottom:18px;}
 .service-card a{
   font-size:13.5px; font-weight:600; color:var(--navy); text-decoration:none;
   border-bottom:1.5px solid var(--gold); padding-bottom:2px;
+  transition:padding-left .2s ease;
 }
+.service-card a:hover{padding-left:4px;}
 
 /* ---------- Process ---------- */
 .process-wrap{background:var(--navy); color:var(--paper); padding:96px 0;}
@@ -247,7 +285,9 @@ section.pad{padding:96px 0;}
 }
 .kyc-card{
   background:var(--paper-2); border:1px solid var(--line); padding:34px; border-radius:4px;
+  transition:transform .22s ease, box-shadow .22s ease;
 }
+.kyc-card:hover{transform:translateY(-3px); box-shadow:0 14px 28px rgba(15,30,51,0.07);}
 .kyc-card h3{font-size:19px; margin-bottom:14px;}
 .kyc-card p{color:var(--ink-soft); font-size:14.5px; margin-bottom:0;}
 
@@ -264,7 +304,9 @@ section.pad{padding:96px 0;}
 .testimonial{
   background:var(--paper); border:1px solid var(--line); border-left:3px solid var(--gold);
   padding:20px 22px; border-radius:2px;
+  transition:transform .22s ease, box-shadow .22s ease;
 }
+.testimonial:hover{transform:translateY(-3px); box-shadow:0 12px 26px rgba(15,30,51,0.08);}
 .testimonial p{font-size:14.5px; color:var(--ink); margin:0 0 10px; font-style:italic;}
 .testimonial .who{font-size:12.5px; color:var(--ink-soft); font-family:'IBM Plex Mono';}
 
@@ -272,7 +314,8 @@ section.pad{padding:96px 0;}
 .faq-list{max-width:760px;}
 .faq-item{padding:22px 0; border-bottom:1px solid var(--line);}
 .faq-item:first-child{padding-top:0;}
-.faq-item h4{font-size:16.5px; margin-bottom:8px;}
+.faq-item h4{font-size:16.5px; margin-bottom:8px; transition:color .2s ease;}
+.faq-item:hover h4{color:var(--gold);}
 .faq-item p{font-size:14.5px; color:var(--ink-soft); margin:0; max-width:640px;}
 
 /* ---------- CTA / contact band ---------- */
@@ -292,7 +335,7 @@ footer{background:var(--navy-2); color:#B9C2D1; padding:64px 0 30px;}
 .foot-grid p, .foot-grid a{font-size:13.8px; color:#AEB8C7; line-height:1.7;}
 .foot-grid ul{list-style:none; margin:0; padding:0;}
 .foot-grid li{margin-bottom:9px;}
-.foot-grid a{text-decoration:none;}
+.foot-grid a{text-decoration:none; transition:color .2s ease;}
 .foot-grid a:hover{color:var(--paper);}
 .foot-logo{
   font-family:'Fraunces'; font-weight:700; font-size:21px; color:var(--paper); margin-bottom:12px; display:block;
@@ -316,7 +359,7 @@ footer{background:var(--navy-2); color:#B9C2D1; padding:64px 0 30px;}
 .page-hero h1{color:var(--paper); font-size:40px; letter-spacing:-0.01em;}
 .page-hero p{color:#CBD3DE; font-size:16px; max-width:520px; margin-top:14px;}
 .breadcrumb{font-family:'IBM Plex Mono'; font-size:12px; color:#8E9BAF; margin-bottom:16px;}
-.breadcrumb a{color:#B9C2D1; text-decoration:none;}
+.breadcrumb a{color:#B9C2D1; text-decoration:none; transition:color .2s ease;}
 .breadcrumb a:hover{color:var(--paper);}
 
 .contact-wrap{padding:80px 0 96px;}
@@ -337,8 +380,8 @@ footer{background:var(--navy-2); color:#B9C2D1; padding:64px 0 30px;}
   color:var(--gold); width:78px; flex:none; padding-top:2px;
 }
 .info-list .ival{font-size:14.5px; color:var(--ink); line-height:1.5;}
-.info-list .ival a{color:var(--navy); text-decoration:none; font-weight:600;}
-.info-list .ival a:hover{text-decoration:underline;}
+.info-list .ival a{color:var(--navy); text-decoration:none; font-weight:600; transition:color .2s ease;}
+.info-list .ival a:hover{text-decoration:underline; color:var(--gold);}
 .info-note{
   font-size:13px; color:var(--ink-soft); font-style:italic; border-left:3px solid var(--gold);
   padding-left:14px; margin:0;
@@ -358,6 +401,7 @@ footer{background:var(--navy-2); color:#B9C2D1; padding:64px 0 30px;}
 .field input, .field select, .field textarea{
   width:100%; border:1px solid var(--line); background:var(--paper); border-radius:2px;
   padding:11px 12px; font-family:'IBM Plex Sans', sans-serif; font-size:14.5px; color:var(--ink);
+  transition:border-color .2s ease, box-shadow .2s ease;
 }
 .field input:focus, .field select:focus, .field textarea:focus{
   outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,146,47,0.15);
@@ -379,7 +423,9 @@ footer{background:var(--navy-2); color:#B9C2D1; padding:64px 0 30px;}
 .area-tag{
   font-family:'IBM Plex Mono'; font-size:12px; border:1px solid var(--line); background:var(--paper);
   padding:5px 11px; border-radius:2px; color:var(--ink-soft);
+  transition:border-color .2s ease, color .2s ease;
 }
+.area-tag:hover{border-color:var(--gold); color:var(--navy);}
 .hours-card{
   background:var(--navy); color:var(--paper); border-radius:4px; padding:28px 26px;
 }
