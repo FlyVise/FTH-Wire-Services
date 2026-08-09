@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact Us — FTH Wire Services</title>
+<meta name="description" content="Get in touch with FTH Wire Services for university fee payments, forex travel cards, and outward remittance. Call, email, or send an enquiry — Delhi NCR based with doorstep KYC.">
+<meta property="og:title" content="Contact Us — FTH Wire Services">
+<meta property="og:description" content="Get in touch with FTH Wire Services for university fee payments, forex travel cards, and outward remittance.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230F1E33'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%23C9922F' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -18,20 +23,20 @@
       <div class="ticker-item" data-pair="CAD"><span class="pair">INR / CAD</span><span class="rate mono">60.35</span><span class="mono arrow">–</span></div>
       <div class="ticker-item" data-pair="AUD"><span class="pair">INR / AUD</span><span class="rate mono">55.21</span><span class="mono arrow">–</span></div>
       <div class="ticker-item" data-pair="SGD"><span class="pair">INR / SGD</span><span class="rate mono">61.98</span><span class="mono arrow">–</span></div>
-      <div class="ticker-item" data-pair="USD"><span class="pair">INR / USD</span><span class="rate mono">83.14</span><span class="mono arrow">–</span></div>
-      <div class="ticker-item" data-pair="GBP"><span class="pair">INR / GBP</span><span class="rate mono">106.82</span><span class="mono arrow">–</span></div>
-      <div class="ticker-item" data-pair="EUR"><span class="pair">INR / EUR</span><span class="rate mono">90.47</span><span class="mono arrow">–</span></div>
-      <div class="ticker-item" data-pair="CAD"><span class="pair">INR / CAD</span><span class="rate mono">60.35</span><span class="mono arrow">–</span></div>
-      <div class="ticker-item" data-pair="AUD"><span class="pair">INR / AUD</span><span class="rate mono">55.21</span><span class="mono arrow">–</span></div>
-      <div class="ticker-item" data-pair="SGD"><span class="pair">INR / SGD</span><span class="rate mono">61.98</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="USD" aria-hidden="true"><span class="pair">INR / USD</span><span class="rate mono">83.14</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="GBP" aria-hidden="true"><span class="pair">INR / GBP</span><span class="rate mono">106.82</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="EUR" aria-hidden="true"><span class="pair">INR / EUR</span><span class="rate mono">90.47</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="CAD" aria-hidden="true"><span class="pair">INR / CAD</span><span class="rate mono">60.35</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="AUD" aria-hidden="true"><span class="pair">INR / AUD</span><span class="rate mono">55.21</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="SGD" aria-hidden="true"><span class="pair">INR / SGD</span><span class="rate mono">61.98</span><span class="mono arrow">–</span></div>
     </div>
   </div>
-  <div id="rate-status" style="text-align:center; background:var(--navy-2); color:#8E9BAF; font-family:'IBM Plex Mono'; font-size:11px; padding:4px 0; letter-spacing:0.03em;">Loading live rates…</div>
+  <div id="rate-status" aria-live="polite" style="text-align:center; background:var(--navy-2); color:#8E9BAF; font-family:'IBM Plex Mono'; font-size:11px; padding:4px 0; letter-spacing:0.03em;">Loading live rates…</div>
 
   <header>
     <div class="wrap nav-row">
       <a href="index.html" class="logo">FTH <span>Wire Services</span></a>
-      <nav class="links">
+      <nav class="links" id="nav-links">
         <a href="index.html#home">Home</a>
         <a href="index.html#about">About Us</a>
         <a href="index.html#forex-card">Forex Card</a>
@@ -41,6 +46,9 @@
       <div class="nav-right">
         <a href="tel:08448289666" class="phone-link">084482 89666</a>
         <a href="tel:08448289666" class="btn btn-gold">Call Now</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
@@ -127,7 +135,7 @@
             <p class="form-note">We'll get back to you the same working day, usually within a couple of hours.</p>
             <button type="submit" class="btn btn-gold">Send Enquiry</button>
           </div>
-          <p id="form-status"></p>
+          <p id="form-status" aria-live="polite" role="status"></p>
         </form>
       </div>
 
@@ -196,6 +204,7 @@
   </footer>
 
   <script src="rates.js"></script>
+  <script src="nav.js"></script>
   <script>
     document.getElementById('contact-form').addEventListener('submit', function(e){
       e.preventDefault();
