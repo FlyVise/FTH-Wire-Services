@@ -1,4 +1,14 @@
 (function(){
+  var notice = document.getElementById('notice-bar');
+  var dismiss = document.getElementById('notice-dismiss');
+  if (notice && dismiss){
+    dismiss.addEventListener('click', function(){
+      notice.classList.add('dismissed');
+    });
+  }
+})();
+
+(function(){
   var toggle = document.getElementById('menu-toggle');
   var nav = document.getElementById('nav-links');
   if (!toggle || !nav) return;
