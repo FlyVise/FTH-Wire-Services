@@ -9,12 +9,20 @@
 <meta property="og:title" content="FTH Wire Services — Send Money Abroad Without the Bank Markup">
 <meta property="og:description" content="Compare live forex rates from banks and RBI-authorised exchange houses before paying a university fee abroad or sending an international remittance.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230F1E33'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%23C9922F' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%2314141f'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%23b8973a' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <div class="notice-bar" id="notice-bar">
+    <div class="notice-row">
+      <p>Live rates refresh every 60 seconds — comparing before you transfer takes two minutes. <a href="#calculator">Check today's rate →</a></p>
+      <button class="notice-dismiss" id="notice-dismiss" aria-label="Dismiss announcement">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+    </div>
+  </div>
 
   <div class="ticker-bar">
     <div class="ticker-track" id="ticker-track">
@@ -32,13 +40,16 @@
       <div class="ticker-item" data-pair="SGD" aria-hidden="true"><span class="pair">INR / SGD</span><span class="rate mono">61.98</span><span class="mono arrow">–</span></div>
     </div>
   </div>
-  <div id="rate-status" aria-live="polite" style="text-align:center; background:var(--navy-2); color:#8E9BAF; font-family:'IBM Plex Mono'; font-size:11px; padding:4px 0; letter-spacing:0.03em;">Loading live rates…</div>
+  <div id="rate-status" aria-live="polite" style="text-align:center; background:var(--ink); color:rgba(255,255,255,0.55); font-family:var(--font-mono); font-size:11px; padding:4px 0; letter-spacing:0.03em;">Loading live rates…</div>
 
   <header>
-    <div class="wrap nav-row">
-      <a href="index.html" class="logo">FTH <span>Wire Services</span></a>
+    <div class="container nav-row">
+      <a href="index.html" class="logo">
+        <svg width="34" height="34" viewBox="0 0 240 240" fill="none" aria-hidden="true" class="seal-mark"><defs><path id="seal-ring-hdr" d="M 120,120 m -92,0 a 92,92 0 1,1 184,0 a 92,92 0 1,1 -184,0"/></defs><circle cx="120" cy="120" r="112" stroke="var(--seal)" stroke-width="1" opacity="0.55"/><circle cx="120" cy="120" r="104" stroke="var(--seal)" stroke-width="1" opacity="0.35"/><circle cx="120" cy="120" r="70" stroke="var(--seal)" stroke-width="1" opacity="0.55"/><line x1="198.0" y1="120.0" x2="206.0" y2="120.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="195.3" y1="140.2" x2="203.1" y2="142.3" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="187.5" y1="159.0" x2="194.5" y2="163.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="175.2" y1="175.2" x2="180.8" y2="180.8" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="159.0" y1="187.5" x2="163.0" y2="194.5" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="140.2" y1="195.3" x2="142.3" y2="203.1" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="120.0" y1="198.0" x2="120.0" y2="206.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="99.8" y1="195.3" x2="97.7" y2="203.1" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="81.0" y1="187.5" x2="77.0" y2="194.5" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="64.8" y1="175.2" x2="59.2" y2="180.8" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="52.5" y1="159.0" x2="45.5" y2="163.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="44.7" y1="140.2" x2="36.9" y2="142.3" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="42.0" y1="120.0" x2="34.0" y2="120.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="44.7" y1="99.8" x2="36.9" y2="97.7" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="52.5" y1="81.0" x2="45.5" y2="77.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="64.8" y1="64.8" x2="59.2" y2="59.2" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="81.0" y1="52.5" x2="77.0" y2="45.5" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="99.8" y1="44.7" x2="97.7" y2="36.9" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="120.0" y1="42.0" x2="120.0" y2="34.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="140.2" y1="44.7" x2="142.3" y2="36.9" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="159.0" y1="52.5" x2="163.0" y2="45.5" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="175.2" y1="64.8" x2="180.8" y2="59.2" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="187.5" y1="81.0" x2="194.5" y2="77.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="195.3" y1="99.8" x2="203.1" y2="97.7" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><text font-size="10.5" letter-spacing="2.5" fill="var(--seal)" opacity="0.85"><textPath href="#seal-ring-hdr" startOffset="0%">FTH WIRE SERVICES &#8226; FOREX &amp; REMITTANCE &#8226; FTH WIRE SERVICES &#8226; FOREX &amp; REMITTANCE &#8226;</textPath></text><text x="120" y="112" text-anchor="middle" font-family="var(--font-display)" font-style="italic" font-weight="600" font-size="46" fill="var(--seal)">FW</text><line x1="90" y1="130" x2="150" y2="130" stroke="var(--seal)" stroke-width="1" opacity="0.60"/><text x="120" y="146" text-anchor="middle" font-family="var(--font-mono)" font-size="9" letter-spacing="1.5" fill="var(--seal)" opacity="0.85">EST. 2011</text></svg>
+        <span class="wordmark"><span class="brand">FTH</span><span class="brand-sub">Wire Services</span></span>
+      </a>
       <nav class="links" id="nav-links">
-        <a href="#home">Home</a>
+        <a href="#home" class="current">Home</a>
         <a href="#about">About Us</a>
         <a href="#forex-card">Forex Card</a>
         <a href="#remittance">Outward Remittance</a>
@@ -46,7 +57,7 @@
       </nav>
       <div class="nav-right">
         <a href="tel:08448289666" class="phone-link">084482 89666</a>
-        <a href="contact.html" class="btn btn-gold">Request Callback</a>
+        <a href="contact.html" class="btn-primary nav-cta">Request Callback</a>
         <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
           <span></span><span></span><span></span>
         </button>
@@ -55,176 +66,321 @@
   </header>
 
   <section class="hero" id="home">
-    <div class="wrap hero-grid reveal-group">
-      <div>
-        <span class="eyebrow">Est. 2011 · Delhi-based</span>
-        <h1>Paying a university<br>fee abroad? Don't<br>go through your <em>bank.</em></h1>
-        <p class="lead">We're a small forex team that helps students and families compare rates from banks and RBI-authorised exchange houses before sending money abroad. Most people save 3-5% just by not using their bank's counter rate.</p>
+    <div class="hero-watermark"><svg width="640" height="640" viewBox="0 0 240 240" fill="none" aria-hidden="true" class="seal-mark"><defs><path id="seal-ring-hero" d="M 120,120 m -92,0 a 92,92 0 1,1 184,0 a 92,92 0 1,1 -184,0"/></defs><circle cx="120" cy="120" r="112" stroke="var(--seal)" stroke-width="1" opacity="0.28"/><circle cx="120" cy="120" r="104" stroke="var(--seal)" stroke-width="1" opacity="0.17"/><circle cx="120" cy="120" r="70" stroke="var(--seal)" stroke-width="1" opacity="0.28"/><line x1="198.0" y1="120.0" x2="206.0" y2="120.0" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="195.3" y1="140.2" x2="203.1" y2="142.3" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="187.5" y1="159.0" x2="194.5" y2="163.0" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="175.2" y1="175.2" x2="180.8" y2="180.8" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="159.0" y1="187.5" x2="163.0" y2="194.5" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="140.2" y1="195.3" x2="142.3" y2="203.1" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="120.0" y1="198.0" x2="120.0" y2="206.0" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="99.8" y1="195.3" x2="97.7" y2="203.1" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="81.0" y1="187.5" x2="77.0" y2="194.5" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="64.8" y1="175.2" x2="59.2" y2="180.8" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="52.5" y1="159.0" x2="45.5" y2="163.0" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="44.7" y1="140.2" x2="36.9" y2="142.3" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="42.0" y1="120.0" x2="34.0" y2="120.0" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="44.7" y1="99.8" x2="36.9" y2="97.7" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="52.5" y1="81.0" x2="45.5" y2="77.0" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="64.8" y1="64.8" x2="59.2" y2="59.2" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="81.0" y1="52.5" x2="77.0" y2="45.5" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="99.8" y1="44.7" x2="97.7" y2="36.9" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="120.0" y1="42.0" x2="120.0" y2="34.0" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="140.2" y1="44.7" x2="142.3" y2="36.9" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="159.0" y1="52.5" x2="163.0" y2="45.5" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="175.2" y1="64.8" x2="180.8" y2="59.2" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="187.5" y1="81.0" x2="194.5" y2="77.0" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><line x1="195.3" y1="99.8" x2="203.1" y2="97.7" stroke="var(--seal)" stroke-width="1" opacity="0.20"/><text font-size="10.5" letter-spacing="2.5" fill="var(--seal)" opacity="0.42"><textPath href="#seal-ring-hero" startOffset="0%">FTH WIRE SERVICES &#8226; FOREX &amp; REMITTANCE &#8226; FTH WIRE SERVICES &#8226; FOREX &amp; REMITTANCE &#8226;</textPath></text><text x="120" y="112" text-anchor="middle" font-family="var(--font-display)" font-style="italic" font-weight="600" font-size="46" fill="var(--seal)">FW</text><line x1="90" y1="130" x2="150" y2="130" stroke="var(--seal)" stroke-width="1" opacity="0.30"/><text x="120" y="146" text-anchor="middle" font-family="var(--font-mono)" font-size="9" letter-spacing="1.5" fill="var(--seal)" opacity="0.42">EST. 2011</text></svg></div>
+    <div class="container hero-inner">
+      <div class="reveal cert-box">
+        <span class="eyebrow-mono" style="margin-bottom:20px;">Wire Desk · Est. 2011 · Delhi NCR</span>
+        <h1>
+          <span class="type-line" style="--type-steps:32; animation-name:typeReveal,hideCaret; animation-duration:900ms,1ms; animation-delay:300ms,1200ms;">Paying a university fee abroad?</span><br>
+          <span class="type-line" style="--type-steps:28; animation-name:typeReveal,hideCaret; animation-duration:850ms,1ms; animation-delay:1350ms,2200ms;">Don't go through your <em class="hero-em">bank</em>.</span>
+        </h1>
+        <p class="hero-lead">We're a small forex team that helps students and families compare rates from banks and RBI-authorised exchange houses before sending money abroad. Most people save 3-5% just by not using their bank's counter rate.</p>
         <div class="hero-ctas">
-          <a href="contact.html" class="btn btn-gold">Get a Rate Quote</a>
-          <a href="#process" class="btn btn-outline" style="color:#F7F3EA; border-color:#F7F3EA;">How It Works</a>
+          <a href="contact.html" class="btn-primary">Get a Rate Quote
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+          <a href="#process" class="btn-secondary">How It Works</a>
         </div>
-        <div class="hero-note">Most university transfers land within 48 working hours. Some take a bit longer depending on the receiving bank.</div>
+        <p class="hero-stat-line">Est. 2011 · Delhi NCR · 1,53,865+ Students Served · ₹1,000 Cr+ Exchanged</p>
       </div>
-      <div class="rate-card">
-        <h4>Today's Rates</h4>
-        <div class="rate-row">
-          <div><span class="dest">United States</span><span class="sub">1 USD</span></div>
-          <div class="val mono" data-rate="USD">₹83.14</div>
-        </div>
-        <div class="rate-row">
-          <div><span class="dest">United Kingdom</span><span class="sub">1 GBP</span></div>
-          <div class="val mono" data-rate="GBP">₹106.82</div>
-        </div>
-        <div class="rate-row">
-          <div><span class="dest">Canada</span><span class="sub">1 CAD</span></div>
-          <div class="val mono" data-rate="CAD">₹60.35</div>
-        </div>
-        <div class="rate-row">
-          <div><span class="dest">Australia</span><span class="sub">1 AUD</span></div>
-          <div class="val mono" data-rate="AUD">₹55.21</div>
-        </div>
-        <p class="foot-note" id="hero-rate-note">Fetching live mid-market rate…</p>
+      <div class="hero-scroll-cue reveal">
+        <span class="eyebrow-mono" style="margin-bottom:0;">C/F — How It Works</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
       </div>
     </div>
   </section>
 
-  <div class="stats">
-    <div class="wrap stats-row reveal-group">
+  <div class="stats-band">
+    <div class="container stats-row reveal-group">
       <div class="stat">
         <div class="num">₹1,000 Cr+</div>
-        <div class="label">exchanged so far</div>
+        <div class="rule"></div>
+        <div class="label">Exchanged So Far</div>
       </div>
       <div class="stat">
         <div class="num">1,53,865+</div>
-        <div class="label">students served</div>
+        <div class="rule"></div>
+        <div class="label">Students Served</div>
       </div>
       <div class="stat">
         <div class="num">3,000+</div>
-        <div class="label">corporates & tour operators</div>
+        <div class="rule"></div>
+        <div class="label">Corporates &amp; Tour Operators</div>
       </div>
     </div>
   </div>
 
-  <section class="pad" id="about">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <h2>What we actually do</h2>
-        <p>Three things, mostly. If your need doesn't fit neatly into one of these, just call us — we'll tell you honestly if we can help or not.</p>
-      </div>
-      <div class="services-grid reveal-group">
-        <div class="service-card">
-          <span class="service-num">01</span>
-          <h3>University Fee Payments</h3>
-          <p>This is what most of our customers come to us for. Book online, get your KYC verified (we can send someone to your home in Delhi NCR, or you can walk into most partner branches), and we transfer via NEFT/RTGS. Universities are usually credited within 2 working days, sometimes a day more if their bank is slow on their end.</p>
-          <a href="#process">See the process</a>
-        </div>
-        <div class="service-card" id="forex-card">
-          <span class="service-num">02</span>
-          <h3>Forex Travel Card</h3>
-          <p>Load a few currencies on one card before you travel. Simpler than carrying cash.</p>
-          <a href="contact.html">Ask about a card</a>
-        </div>
-        <div class="service-card" id="remittance">
-          <span class="service-num">03</span>
-          <h3>Outward Remittance</h3>
-          <p>Sending money to family abroad, or paying a supplier overseas — same rate comparison, same paperwork, different destination account.</p>
-          <a href="contact.html">Send money</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="process-wrap" id="process">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <h2>How a tuition payment actually goes</h2>
-        <p>Same four steps whether it's tuition or a personal remittance. Only the destination account changes.</p>
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">How It Works</span>
+        <h2 class="section-heading">Same four steps, every time</h2>
+        <p class="section-sub">Whether it's tuition or a personal remittance — only the destination account changes.</p>
       </div>
       <div class="process-grid reveal-group">
         <div class="step">
-          <span class="step-num">01</span>
+          <svg width="140" height="100" viewBox="0 0 280 200" fill="none" aria-hidden="true">
+            <rect x="60" y="40" width="90" height="120" rx="4" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="2"></rect>
+            <line x1="75" y1="62" x2="135" y2="62" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="1.5"></line>
+            <line x1="75" y1="78" x2="135" y2="78" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="1.5"></line>
+            <line x1="75" y1="94" x2="115" y2="94" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="1.5"></line>
+            <rect x="130" y="70" width="90" height="90" rx="4" fill="var(--gold-light)" stroke="var(--gold)" stroke-opacity="0.55" stroke-width="1.5"></rect>
+            <line x1="145" y1="92" x2="205" y2="92" stroke="var(--gold)" stroke-opacity="0.5" stroke-width="1.5"></line>
+            <line x1="145" y1="108" x2="205" y2="108" stroke="var(--gold)" stroke-opacity="0.5" stroke-width="1.5"></line>
+            <line x1="145" y1="124" x2="185" y2="124" stroke="var(--gold)" stroke-opacity="0.5" stroke-width="1.5"></line>
+          </svg>
           <h4>Compare</h4>
-          <p>Tell us the amount and where you're sending it. We show you rates from a few banks and RBI-authorised exchange houses near you.</p>
+          <p>Tell us the amount and destination. We show rates from a few banks and RBI-authorised exchange houses near you.</p>
         </div>
         <div class="step">
-          <span class="step-num">02</span>
-          <h4>Book & verify</h4>
-          <p>Pick a rate, book online, send over your KYC docs.</p>
+          <svg width="140" height="100" viewBox="0 0 280 200" fill="none" aria-hidden="true">
+            <rect x="90" y="30" width="100" height="130" rx="3" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="2"></rect>
+            <line x1="108" y1="58" x2="172" y2="58" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="1.5"></line>
+            <line x1="108" y1="74" x2="172" y2="74" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="1.5"></line>
+            <line x1="108" y1="90" x2="150" y2="90" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="1.5"></line>
+            <circle cx="168" cy="140" r="16" fill="var(--gold-light)" stroke="var(--gold)" stroke-opacity="0.55" stroke-width="1.5"></circle>
+            <path d="M161 140 L166 145 L176 133" stroke="var(--gold)" stroke-opacity="0.85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <h4>Book &amp; Verify</h4>
+          <p>Pick a rate, book online, and send over your KYC documents — home visits available in Delhi NCR.</p>
         </div>
         <div class="step">
-          <span class="step-num">03</span>
-          <h4>Transfer funds</h4>
-          <p>You send the amount to the exchange house/bank as NEFT or RTGS — usual net banking, nothing unusual.</p>
+          <svg width="140" height="100" viewBox="0 0 280 200" fill="none" aria-hidden="true">
+            <rect x="40" y="70" width="60" height="60" rx="4" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="2"></rect>
+            <path d="M40 70 L70 50 L100 70" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="2" fill="none" stroke-linejoin="round"></path>
+            <rect x="180" y="70" width="60" height="60" rx="4" fill="var(--gold-light)" stroke="var(--gold)" stroke-opacity="0.55" stroke-width="1.5"></rect>
+            <path d="M180 70 L210 50 L240 70" stroke="var(--gold)" stroke-opacity="0.55" stroke-width="1.5" fill="none" stroke-linejoin="round"></path>
+            <line x1="105" y1="100" x2="175" y2="100" stroke="var(--gold)" stroke-opacity="0.7" stroke-width="2"></line>
+            <path d="M165 92 L175 100 L165 108" stroke="var(--gold)" stroke-opacity="0.7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <h4>Transfer Funds</h4>
+          <p>You send the amount as NEFT or RTGS to the exchange house or bank — usual net banking, nothing unusual.</p>
         </div>
         <div class="step">
-          <span class="step-num">04</span>
+          <svg width="140" height="100" viewBox="0 0 280 200" fill="none" aria-hidden="true">
+            <rect x="70" y="60" width="140" height="90" rx="4" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="2"></rect>
+            <path d="M70 60 L140 110 L210 60" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="2" fill="none" stroke-linejoin="round"></path>
+            <circle cx="185" cy="130" r="22" fill="var(--gold-light)" stroke="var(--gold)" stroke-opacity="0.55" stroke-width="1.5"></circle>
+            <path d="M175 130 L182 137 L196 121" stroke="var(--gold)" stroke-opacity="0.85" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
           <h4>Delivered</h4>
-          <p>We initiate the wire. University side usually shows the credit within 48 working hours.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="pad">
-    <div class="wrap kyc">
-      <div>
-        <div class="section-head reveal" style="margin-bottom:28px;">
-          <h2 style="font-size:30px;">Documents you'll need</h2>
-        </div>
-        <ul class="kyc-list reveal-group">
-          <li><span class="mark"></span> University letter or prospectus showing the fee amount</li>
-          <li><span class="mark"></span> Indian passport copy of the student</li>
-          <li><span class="mark"></span> ID proof of the sender — Aadhaar, driving licence, voter ID, or passport</li>
-          <li><span class="mark"></span> PAN card of the sender</li>
-        </ul>
-        <p class="kyc-note">The sender can be the student or a parent — the amount must come from the sender's own account.</p>
-      </div>
-      <div class="kyc-card reveal">
-        <h3>Not sure which documents you need?</h3>
-        <p>Send us your university's fee letter and we'll confirm exactly what's required for your specific transfer, before you start the KYC process.</p>
-        <div style="margin-top:22px;">
-          <a href="contact.html" class="btn btn-gold">Ask Us First</a>
+          <p>We initiate the wire. The university side usually shows the credit within 48 working hours.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="pad" style="background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-    <div class="wrap">
-      <div class="section-head reveal" style="margin-bottom:40px;">
-        <h2>A few things people ask about</h2>
+  <section class="section" id="about" style="background:var(--white); border-block:1px solid var(--line);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">What We Do</span>
+        <h2 class="section-heading">Three things, mostly</h2>
+        <p class="section-sub">If your need doesn't fit neatly into one of these, just call us — we'll tell you honestly if we can help or not.</p>
       </div>
-      <div class="why-grid">
-        <ul class="why-list reveal-group">
-          <li><strong>Rates you can actually compare.</strong> We show quotes from a few banks and exchange houses side by side, so you're not just taking whatever number your bank gives you.</li>
-          <li><strong>KYC without standing in a queue.</strong> Someone can come to your home for document verification if you're in Delhi NCR — otherwise it's at the nearest partner branch.</li>
-          <li><strong>We tell you the real timeline.</strong> 48 working hours is typical, not guaranteed. Some receiving banks are just slower, and we'll say so upfront.</li>
-        </ul>
-        <div class="testimonials reveal-group">
-          <div class="testimonial">
-            <p>"Was paying my daughter's first semester fee to a university in Melbourne. Rate was better than what my bank quoted and someone came home for the KYC, which saved a trip."</p>
-            <span class="who">— Ramesh Iyer, parent, Rohini</span>
+      <div class="ledger-list reveal-group">
+        <a href="#process" class="ledger-row">
+          <span class="idx">01</span>
+          <span>
+            <span class="title">University Fee Payments</span>
+            <span class="desc">Book online, verify KYC, and we transfer via NEFT/RTGS — usually credited within 48 hours.</span>
+          </span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+        </a>
+        <a href="contact.html" id="forex-card" class="ledger-row">
+          <span class="idx">02</span>
+          <span>
+            <span class="title">Forex Travel Card</span>
+            <span class="desc">Load a few currencies on one card before you travel — simpler than carrying cash.</span>
+          </span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+        </a>
+        <a href="contact.html" id="remittance" class="ledger-row">
+          <span class="idx">03</span>
+          <span>
+            <span class="title">Outward Remittance</span>
+            <span class="desc">Sending money to family abroad, or paying a supplier overseas — same comparison, different account.</span>
+          </span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Why Us</span>
+        <h2 class="section-heading">What working with us actually feels like</h2>
+      </div>
+      <div class="why-rows">
+        <div class="why-row">
+          <div class="why-art reveal">
+            <svg width="280" height="200" viewBox="0 0 280 200" fill="none" aria-hidden="true">
+              <path d="M40 70 Q50 64 60 70 T80 70 T100 70" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="1.5" fill="none"></path>
+              <path d="M40 82 Q50 76 60 82 T80 82 T100 82" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="1.5" fill="none"></path>
+              <path d="M40 94 Q50 88 60 94 T80 94 T100 94" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="1.5" fill="none"></path>
+              <line x1="118" y1="88" x2="160" y2="88" stroke="var(--gold)" stroke-opacity="0.55" stroke-width="2"></line>
+              <path d="M152 80 L160 88 L152 96" stroke="var(--gold)" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <line x1="180" y1="76" x2="240" y2="76" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="2"></line>
+              <line x1="180" y1="96" x2="225" y2="96" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="2"></line>
+            </svg>
           </div>
-          <div class="testimonial">
-            <p>"Straightforward process, though the transfer to my university in Canada took closer to 4 days, not 2 — bank on their end was slow. FTH kept me updated at least."</p>
-            <span class="who">— Ananya Sharma, student</span>
+          <div class="reveal">
+            <h3>Rates you can actually compare</h3>
+            <p>We show quotes from a few banks and exchange houses side by side, so you're not just taking whatever number your bank gives you.</p>
           </div>
-          <div class="testimonial">
-            <p>"Been using them for remittances to my brother in Dubai for a couple of years now. Nothing fancy, just works."</p>
-            <span class="who">— Vikram Nair</span>
+        </div>
+        <div class="why-row reverse">
+          <div class="why-art reveal">
+            <svg width="280" height="200" viewBox="0 0 280 200" fill="none" aria-hidden="true">
+              <path d="M90 110 L140 70 L190 110" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="2" fill="none" stroke-linejoin="round"></path>
+              <rect x="100" y="110" width="80" height="60" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="2"></rect>
+              <rect x="130" y="130" width="20" height="40" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="1.5"></rect>
+              <circle cx="185" cy="95" r="18" fill="var(--gold-light)" stroke="var(--gold)" stroke-opacity="0.55" stroke-width="1.5"></circle>
+              <path d="M177 95 L183 101 L194 87" stroke="var(--gold)" stroke-opacity="0.85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <div class="reveal">
+            <h3>KYC without standing in a queue</h3>
+            <p>Someone can come to your home for document verification if you're in Delhi NCR — otherwise it's at the nearest partner branch.</p>
+          </div>
+        </div>
+        <div class="why-row">
+          <div class="why-art reveal">
+            <svg width="280" height="200" viewBox="0 0 280 200" fill="none" aria-hidden="true">
+              <circle cx="140" cy="100" r="55" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="2"></circle>
+              <line x1="140" y1="100" x2="140" y2="65" stroke="var(--ink)" stroke-opacity="0.25" stroke-width="2" stroke-linecap="round"></line>
+              <line x1="140" y1="100" x2="165" y2="112" stroke="var(--ink)" stroke-opacity="0.25" stroke-width="2" stroke-linecap="round"></line>
+              <circle cx="140" cy="100" r="3" fill="var(--ink)" fill-opacity="0.3"></circle>
+              <path d="M185 60 a20 20 0 1 1 -14 34" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2" fill="none" stroke-linecap="round"></path>
+              <path d="M178 88 L171 94 L178 100" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <div class="reveal">
+            <h3>We tell you the real timeline</h3>
+            <p>48 working hours is typical, not guaranteed. Some receiving banks are just slower, and we'll say so upfront.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="pad" id="faq">
-    <div class="wrap">
-      <div class="section-head reveal" style="margin-bottom:36px;">
-        <h2>Questions we get a lot</h2>
+  <section class="section" style="background:var(--white); border-block:1px solid var(--line);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Documents You'll Need</span>
+        <h2 class="section-heading">Four documents to get started</h2>
       </div>
-      <div class="faq-list reveal-group">
+      <div class="kyc-grid reveal-group">
+        <div class="kyc-card-item">
+          <span class="kyc-idx">01</span>
+          <h4>Fee Letter</h4>
+          <p>University letter or prospectus showing the fee amount.</p>
+        </div>
+        <div class="kyc-card-item">
+          <span class="kyc-idx">02</span>
+          <h4>Student's Passport</h4>
+          <p>Indian passport copy of the student.</p>
+        </div>
+        <div class="kyc-card-item">
+          <span class="kyc-idx">03</span>
+          <h4>Sender's ID Proof</h4>
+          <p>Aadhaar, driving licence, voter ID, or passport.</p>
+        </div>
+        <div class="kyc-card-item">
+          <span class="kyc-idx">04</span>
+          <h4>Sender's PAN Card</h4>
+          <p>PAN card of the person sending the funds.</p>
+        </div>
+      </div>
+      <p class="kyc-note reveal">The sender can be the student or a parent — the amount must come from the sender's own account. Not sure which documents you need? Send us your university's fee letter and we'll confirm exactly what's required before you start KYC.</p>
+      <div class="reveal" style="text-align:center; margin-top:28px;">
+        <a href="contact.html" class="btn-primary">Ask Us First</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="calculator" style="background:var(--bg);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Live Now</span>
+        <h2 class="section-heading">See exactly what you'll get, before you commit</h2>
+        <p class="section-sub">No sign-up, no download — check today's live rate for any amount, right in your browser.</p>
+      </div>
+      <div class="calc-card reveal">
+        <div class="calc-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2"></rect><line x1="8" x2="16" y1="6" y2="6"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path></svg>
+          Quick Rate Check
+        </div>
+        <div class="calc-body">
+          <div class="field-group" style="margin-bottom:0;">
+            <label class="field-label" for="calc-amount">Amount</label>
+            <input class="field-input" type="number" id="calc-amount" value="1000" min="0" step="1">
+          </div>
+          <div class="field-group" style="margin-bottom:0;">
+            <label class="field-label" for="calc-currency">Currency</label>
+            <select class="field-select" id="calc-currency">
+              <option value="USD">USD — US Dollar</option>
+              <option value="GBP">GBP — British Pound</option>
+              <option value="EUR">EUR — Euro</option>
+              <option value="CAD">CAD — Canadian Dollar</option>
+              <option value="AUD">AUD — Australian Dollar</option>
+              <option value="SGD">SGD — Singapore Dollar</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-results">
+          <div>
+            <div class="calc-result-label">You'll pay approximately</div>
+            <div class="calc-result-value" id="calc-result">—</div>
+          </div>
+          <div class="calc-note" id="calc-note">Fetching live rate…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white); border-block:1px solid var(--line);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">On the Record</span>
+        <h2 class="section-heading">What clients say after working with us</h2>
+      </div>
+      <div class="testimonial-grid reveal-group">
+        <div class="testimonial-featured">
+          <svg width="64" height="64" viewBox="0 0 240 240" fill="none" aria-hidden="true" class="seal-mark"><defs><path id="seal-ring-tst" d="M 120,120 m -92,0 a 92,92 0 1,1 184,0 a 92,92 0 1,1 -184,0"/></defs><circle cx="120" cy="120" r="112" stroke="var(--seal)" stroke-width="1" opacity="0.55"/><circle cx="120" cy="120" r="104" stroke="var(--seal)" stroke-width="1" opacity="0.35"/><circle cx="120" cy="120" r="70" stroke="var(--seal)" stroke-width="1" opacity="0.55"/><line x1="198.0" y1="120.0" x2="206.0" y2="120.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="195.3" y1="140.2" x2="203.1" y2="142.3" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="187.5" y1="159.0" x2="194.5" y2="163.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="175.2" y1="175.2" x2="180.8" y2="180.8" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="159.0" y1="187.5" x2="163.0" y2="194.5" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="140.2" y1="195.3" x2="142.3" y2="203.1" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="120.0" y1="198.0" x2="120.0" y2="206.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="99.8" y1="195.3" x2="97.7" y2="203.1" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="81.0" y1="187.5" x2="77.0" y2="194.5" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="64.8" y1="175.2" x2="59.2" y2="180.8" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="52.5" y1="159.0" x2="45.5" y2="163.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="44.7" y1="140.2" x2="36.9" y2="142.3" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="42.0" y1="120.0" x2="34.0" y2="120.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="44.7" y1="99.8" x2="36.9" y2="97.7" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="52.5" y1="81.0" x2="45.5" y2="77.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="64.8" y1="64.8" x2="59.2" y2="59.2" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="81.0" y1="52.5" x2="77.0" y2="45.5" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="99.8" y1="44.7" x2="97.7" y2="36.9" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="120.0" y1="42.0" x2="120.0" y2="34.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="140.2" y1="44.7" x2="142.3" y2="36.9" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="159.0" y1="52.5" x2="163.0" y2="45.5" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="175.2" y1="64.8" x2="180.8" y2="59.2" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="187.5" y1="81.0" x2="194.5" y2="77.0" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><line x1="195.3" y1="99.8" x2="203.1" y2="97.7" stroke="var(--seal)" stroke-width="1" opacity="0.40"/><text font-size="10.5" letter-spacing="2.5" fill="var(--seal)" opacity="0.85"><textPath href="#seal-ring-tst" startOffset="0%">FTH WIRE SERVICES &#8226; FOREX &amp; REMITTANCE &#8226; FTH WIRE SERVICES &#8226; FOREX &amp; REMITTANCE &#8226;</textPath></text><text x="120" y="112" text-anchor="middle" font-family="var(--font-display)" font-style="italic" font-weight="600" font-size="46" fill="var(--seal)">FW</text><line x1="90" y1="130" x2="150" y2="130" stroke="var(--seal)" stroke-width="1" opacity="0.60"/><text x="120" y="146" text-anchor="middle" font-family="var(--font-mono)" font-size="9" letter-spacing="1.5" fill="var(--seal)" opacity="0.85">EST. 2011</text></svg>
+          <blockquote>"Was paying my daughter's first semester fee to a university in Melbourne. Rate was better than what my bank quoted and someone came home for the KYC, which saved a trip."</blockquote>
+          <div class="who">
+            <div class="name">Ramesh Iyer</div>
+            <div class="role">Parent, Rohini</div>
+          </div>
+        </div>
+        <div class="testimonial-stack">
+          <div class="testimonial-stack-item">
+            <blockquote>"Straightforward process, though the transfer to my university in Canada took closer to 4 days, not 2 — bank on their end was slow. FTH kept me updated at least."</blockquote>
+            <div class="who">
+              <div class="name">Ananya Sharma</div>
+              <div class="role">Student</div>
+            </div>
+          </div>
+          <div class="testimonial-stack-item">
+            <blockquote>"Been using them for remittances to my brother in Dubai for a couple of years now. Nothing fancy, just works."</blockquote>
+            <div class="who">
+              <div class="name">Vikram Nair</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Questions We Get A Lot</span>
+        <h2 class="section-heading">A few things people ask about</h2>
+      </div>
+      <div class="faq-list reveal-group" style="margin:0 auto;">
         <div class="faq-item">
           <h4>Is there a minimum amount?</h4>
           <p>No fixed minimum for tuition payments. For personal remittance there's sometimes a practical floor depending on which exchange house gives the best rate that day — we'll tell you at the time.</p>
@@ -245,21 +401,24 @@
     </div>
   </section>
 
-  <div class="cta-band" id="contact">
-    <div class="wrap cta-row reveal">
+  <div class="cta-band reveal" id="contact">
+    <div class="container">
       <h2>Got a fee payment coming up? Call us before you go to the bank.</h2>
-      <div style="display:flex; gap:14px; flex-wrap:wrap;">
-        <a href="tel:08447786270" class="btn" style="background:var(--navy); color:var(--paper);">Call 084477 86270</a>
-        <a href="mailto:info@fthwireservices.com" class="btn btn-outline">Email Us</a>
+      <div class="cta-btns">
+        <a href="tel:08447786270" class="btn-primary">Call 084477 86270</a>
+        <a href="mailto:info@fthwireservices.com" class="btn-secondary">Email Us</a>
       </div>
     </div>
   </div>
 
   <footer>
-    <div class="wrap foot-grid">
-      <div>
-        <span class="foot-logo">FTH Wire Services</span>
-        <p>We help students and families in Delhi NCR pay university fees abroad and send remittances, at a better rate than most bank counters.</p>
+    <div class="container foot-grid">
+      <div class="foot-brand">
+        <svg width="36" height="36" viewBox="0 0 240 240" fill="none" aria-hidden="true" class="seal-mark"><defs><path id="seal-ring-ftr" d="M 120,120 m -92,0 a 92,92 0 1,1 184,0 a 92,92 0 1,1 -184,0"/></defs><circle cx="120" cy="120" r="112" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.55"/><circle cx="120" cy="120" r="104" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.35"/><circle cx="120" cy="120" r="70" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.55"/><line x1="198.0" y1="120.0" x2="206.0" y2="120.0" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="195.3" y1="140.2" x2="203.1" y2="142.3" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="187.5" y1="159.0" x2="194.5" y2="163.0" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="175.2" y1="175.2" x2="180.8" y2="180.8" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="159.0" y1="187.5" x2="163.0" y2="194.5" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="140.2" y1="195.3" x2="142.3" y2="203.1" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="120.0" y1="198.0" x2="120.0" y2="206.0" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="99.8" y1="195.3" x2="97.7" y2="203.1" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="81.0" y1="187.5" x2="77.0" y2="194.5" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="64.8" y1="175.2" x2="59.2" y2="180.8" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="52.5" y1="159.0" x2="45.5" y2="163.0" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="44.7" y1="140.2" x2="36.9" y2="142.3" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="42.0" y1="120.0" x2="34.0" y2="120.0" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="44.7" y1="99.8" x2="36.9" y2="97.7" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="52.5" y1="81.0" x2="45.5" y2="77.0" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="64.8" y1="64.8" x2="59.2" y2="59.2" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="81.0" y1="52.5" x2="77.0" y2="45.5" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="99.8" y1="44.7" x2="97.7" y2="36.9" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="120.0" y1="42.0" x2="120.0" y2="34.0" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="140.2" y1="44.7" x2="142.3" y2="36.9" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="159.0" y1="52.5" x2="163.0" y2="45.5" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="175.2" y1="64.8" x2="180.8" y2="59.2" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="187.5" y1="81.0" x2="194.5" y2="77.0" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><line x1="195.3" y1="99.8" x2="203.1" y2="97.7" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.40"/><text font-size="10.5" letter-spacing="2.5" fill="rgba(255,255,255,0.55)" opacity="0.85"><textPath href="#seal-ring-ftr" startOffset="0%">FTH WIRE SERVICES &#8226; FOREX &amp; REMITTANCE &#8226; FTH WIRE SERVICES &#8226; FOREX &amp; REMITTANCE &#8226;</textPath></text><text x="120" y="112" text-anchor="middle" font-family="var(--font-display)" font-style="italic" font-weight="600" font-size="46" fill="rgba(255,255,255,0.55)">FW</text><line x1="90" y1="130" x2="150" y2="130" stroke="rgba(255,255,255,0.55)" stroke-width="1" opacity="0.60"/><text x="120" y="146" text-anchor="middle" font-family="var(--font-mono)" font-size="9" letter-spacing="1.5" fill="rgba(255,255,255,0.55)" opacity="0.85">EST. 2011</text></svg>
+        <span class="brand">FTH Wire Services</span>
+        <span class="brand-sub">Wire Services</span>
+        <p class="tagline">Compare first. Wire with confidence.</p>
+        <p class="desc">We help students and families in Delhi NCR pay university fees abroad and send remittances, at a better rate than most bank counters.</p>
       </div>
       <div>
         <h5>Navigate</h5>
@@ -282,17 +441,22 @@
         <ul>
           <li><a href="tel:08448289666">084482 89666</a></li>
           <li><a href="mailto:info@fthwireservices.com">info@fthwireservices.com</a></li>
-          <li style="color:#7E8AA0;">Mon–Sat, 10am–7pm</li>
+          <li style="padding:6px 0; color:rgba(255,255,255,0.7); font-size:14px;">Mon–Sat, 10am–7pm</li>
         </ul>
       </div>
     </div>
-    <div class="wrap foot-bottom">
+    <div class="container foot-bottom">
       <span>© 2026 FTH Wire Services.</span>
       <span>Rates shown are indicative and update roughly every minute — your booked rate is locked in at the time of transfer.</span>
     </div>
   </footer>
 
+  <a href="tel:08447786270" aria-label="Call FTH Wire Services" class="call-fab">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+  </a>
+
   <script src="rates.js"></script>
+  <script src="calculator.js"></script>
   <script src="nav.js"></script>
   <script src="animations.js"></script>
 </body>

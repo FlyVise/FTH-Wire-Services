@@ -3,7 +3,10 @@
 
   var reveals = document.querySelectorAll('.reveal');
   var groups = document.querySelectorAll('.reveal-group');
-  var liftTargets = document.querySelectorAll('.btn, .service-card, .kyc-card, .testimonial, .area-tag');
+  var liftTargets = document.querySelectorAll(
+    '.btn-primary, .btn-secondary, .kyc-card-item, .testimonial-featured, .testimonial-stack-item, .calc-card, .area-tag'
+  );
+  var shiftTargets = document.querySelectorAll('.ledger-row');
 
   function showAll(){
     reveals.forEach(function(el){ el.style.opacity = 1; el.style.transform = 'none'; });
@@ -17,7 +20,7 @@
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (reduceMotion || (!reveals.length && !groups.length && !liftTargets.length)) {
+  if (reduceMotion || (!reveals.length && !groups.length && !liftTargets.length && !shiftTargets.length)) {
     showAll();
     return;
   }
@@ -56,6 +59,16 @@
       animate(element, lift, { duration: 0.25, ease: EASE });
       return function(){
         animate(element, { y: 0, scale: 1 }, { duration: 0.25, ease: EASE });
+      };
+    });
+
+    hover(shiftTargets, function(row){
+      var icon = row.querySelector('svg');
+      animate(row, { x: 8 }, { duration: 0.25, ease: EASE });
+      if (icon) animate(icon, { x: 4, y: -4 }, { duration: 0.25, ease: EASE });
+      return function(){
+        animate(row, { x: 0 }, { duration: 0.25, ease: EASE });
+        if (icon) animate(icon, { x: 0, y: 0 }, { duration: 0.25, ease: EASE });
       };
     });
   }).catch(showAll);
