@@ -5,11 +5,22 @@ A simple, static marketing site for FTH Wire Services (forex / university fee pa
 ## Structure
 
 ```
-├── index.html      Homepage — hero, services, process, KYC docs, FAQ, testimonials
-├── contact.html     Contact page — contact info + enquiry form
-├── styles.css       Shared styles used by both pages
-└── rates.js         Shared script that powers the live currency ticker
+├── index.html       Homepage — hero, services, process, KYC docs, FAQ, testimonials
+├── contact.html      Contact page — contact info + enquiry form
+├── styles.css        Shared styles used by both pages
+├── rates.js          Shared script that powers the live currency ticker
+├── nav.js            Mobile nav menu toggle
+└── animations.js     Scroll-triggered fades, staggered reveals, and hover transitions (Framer Motion)
 ```
+
+## Animations
+
+Scroll-triggered fades, staggered reveals, and hover transitions are powered by [Motion](https://motion.dev) — the same animation engine as Framer Motion, published for plain JS as the `motion` npm package. Since there's no build step, `animations.js` loads it at runtime from the jsDelivr CDN (`https://cdn.jsdelivr.net/npm/motion@13/+esm`).
+
+- Elements with a `.reveal` class fade/slide in individually when scrolled into view; `.reveal-group` animates its direct children with a staggered delay.
+- `.btn`, `.service-card`, `.kyc-card`, `.testimonial`, and `.area-tag` get a subtle lift/scale on hover.
+- `prefers-reduced-motion: reduce` skips all of the above and shows content immediately.
+- If the CDN can't be reached, `animations.js` falls back to showing all reveal content immediately rather than leaving it hidden.
 
 ## Live exchange rate ticker
 
