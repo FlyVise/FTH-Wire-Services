@@ -94,21 +94,24 @@
       <div class="form-panel">
         <h3>Or send us the details</h3>
         <p class="sub">Fill this in and it'll open in your email app, addressed to us — nothing gets sent without you hitting send there.</p>
-        <form id="contact-form">
+        <form id="contact-form" novalidate>
           <div class="form-row">
             <div class="field-group">
               <label class="field-label" for="f-name">Your name</label>
               <input class="field-input" type="text" id="f-name" required>
+              <p class="field-help err" id="f-name-help">Let us know who's asking.</p>
             </div>
             <div class="field-group">
               <label class="field-label" for="f-phone">Phone number</label>
               <input class="field-input" type="tel" id="f-phone" required>
+              <p class="field-help err" id="f-phone-help">Enter a valid phone number so we can reach you.</p>
             </div>
           </div>
           <div class="form-row">
             <div class="field-group">
               <label class="field-label" for="f-email">Email</label>
               <input class="field-input" type="email" id="f-email">
+              <p class="field-help err" id="f-email-help">That doesn't look like a valid email address.</p>
             </div>
             <div class="field-group">
               <label class="field-label" for="f-topic">This is about</label>
@@ -138,7 +141,7 @@
             <p class="form-note">We'll get back to you the same working day, usually within a couple of hours.</p>
             <button type="submit" class="btn-primary">Send Enquiry</button>
           </div>
-          <p id="form-status" aria-live="polite" role="status"></p>
+          <div id="form-status" class="alert-slot" aria-live="polite" role="status"></div>
         </form>
       </div>
 
@@ -217,38 +220,82 @@
   <script src="nav.js"></script>
   <script src="animations.js"></script>
   <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      var name = document.getElementById('f-name').value.trim();
-      var phone = document.getElementById('f-phone').value.trim();
-      var email = document.getElementById('f-email').value.trim();
-      var topic = document.getElementById('f-topic').value;
-      var amount = document.getElementById('f-amount').value.trim();
-      var dest = document.getElementById('f-dest').value.trim();
-      var message = document.getElementById('f-message').value.trim();
-
-      var subject = 'Enquiry: ' + topic + (name ? ' — ' + name : '');
-      var bodyLines = [
-        'Name: ' + name,
-        'Phone: ' + phone,
-        'Email: ' + (email || '(not provided)'),
-        'Enquiry type: ' + topic,
-        'Approx. amount: ' + (amount || '(not provided)'),
-        'Destination country: ' + (dest || '(not provided)'),
-        '',
-        'Message:',
-        message || '(none)'
-      ];
-      var mailto = 'mailto:info@fthwireservices.com'
-        + '?subject=' + encodeURIComponent(subject)
-        + '&body=' + encodeURIComponent(bodyLines.join('\n'));
-
-      window.location.href = mailto;
-
+    (function(){
+      var form = document.getElementById('contact-form');
       var statusEl = document.getElementById('form-status');
-      statusEl.textContent = 'Opening your email app with these details filled in — just hit send there.';
-      statusEl.className = 'show';
-    });
+      var nameEl = document.getElementById('f-name');
+      var nameHelp = document.getElementById('f-name-help');
+      var phoneEl = document.getElementById('f-phone');
+      var phoneHelp = document.getElementById('f-phone-help');
+      var emailEl = document.getElementById('f-email');
+      var emailHelp = document.getElementById('f-email-help');
+
+      var ICONS = {
+        error: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>',
+        success: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>'
+      };
+
+      function showAlert(variant, message){
+        statusEl.innerHTML =
+          '<div class="alert ' + variant + ' compact">' + ICONS[variant] +
+          '<div class="body"><span class="msg">' + message + '</span></div></div>';
+      }
+
+      function isValidPhone(v){ return v.replace(/\D/g, '').length >= 10; }
+      function isValidEmail(v){ return v === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        statusEl.innerHTML = '';
+
+        var name = nameEl.value.trim();
+        var phone = phoneEl.value.trim();
+        var email = emailEl.value.trim();
+        var topic = document.getElementById('f-topic').value;
+        var amount = document.getElementById('f-amount').value.trim();
+        var dest = document.getElementById('f-dest').value.trim();
+        var message = document.getElementById('f-message').value.trim();
+
+        var nameValid = name !== '';
+        nameEl.classList.toggle('err', !nameValid);
+        nameHelp.classList.toggle('show', !nameValid);
+
+        var phoneValid = isValidPhone(phone);
+        phoneEl.classList.toggle('err', !phoneValid);
+        phoneHelp.classList.toggle('show', !phoneValid);
+
+        var emailValid = isValidEmail(email);
+        emailEl.classList.toggle('err', !emailValid);
+        emailEl.classList.toggle('ok', emailValid && email !== '');
+        emailHelp.classList.toggle('show', !emailValid);
+
+        if (!nameValid || !phoneValid || !emailValid){
+          var invalidCount = [nameValid, phoneValid, emailValid].filter(function(v){ return !v; }).length;
+          showAlert('error', 'Check the highlighted field' + (invalidCount > 1 ? 's' : '') + ' above before sending.');
+          (!nameValid ? nameEl : !phoneValid ? phoneEl : emailEl).focus();
+          return;
+        }
+
+        var subject = 'Enquiry: ' + topic + (name ? ' — ' + name : '');
+        var bodyLines = [
+          'Name: ' + name,
+          'Phone: ' + phone,
+          'Email: ' + (email || '(not provided)'),
+          'Enquiry type: ' + topic,
+          'Approx. amount: ' + (amount || '(not provided)'),
+          'Destination country: ' + (dest || '(not provided)'),
+          '',
+          'Message:',
+          message || '(none)'
+        ];
+        var mailto = 'mailto:info@fthwireservices.com'
+          + '?subject=' + encodeURIComponent(subject)
+          + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+        window.location.href = mailto;
+        showAlert('success', 'Opening your email app with these details filled in — just hit send there.');
+      });
+    })();
   </script>
 </body>
 </html>
