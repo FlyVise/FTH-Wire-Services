@@ -3,7 +3,7 @@
 
   var reveals = document.querySelectorAll('.reveal');
   var groups = document.querySelectorAll('.reveal-group');
-  var liftTargets = document.querySelectorAll('.btn, .service-card, .kyc-card, .testimonial, .area-tag');
+  var liftTargets = document.querySelectorAll('.btn, .service-card, .kyc-card');
 
   function showAll(){
     reveals.forEach(function(el){ el.style.opacity = 1; el.style.transform = 'none'; });
@@ -50,10 +50,7 @@
     });
 
     hover(liftTargets, function(element){
-      var lift = element.classList.contains('area-tag')
-        ? { scale: 1.05 }
-        : { y: -4, scale: 1.015 };
-      animate(element, lift, { duration: 0.25, ease: EASE });
+      animate(element, { y: -4, scale: 1.015 }, { duration: 0.25, ease: EASE });
       return function(){
         animate(element, { y: 0, scale: 1 }, { duration: 0.25, ease: EASE });
       };
