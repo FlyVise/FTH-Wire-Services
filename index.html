@@ -2,8 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FTH Wire Services — Send Money Abroad Without the Bank Markup</title>
+<meta name="description" content="Compare live forex rates from banks and RBI-authorised exchange houses before paying a university fee abroad or sending an international remittance. Delhi NCR based, doorstep KYC available.">
+<meta property="og:title" content="FTH Wire Services — Send Money Abroad Without the Bank Markup">
+<meta property="og:description" content="Compare live forex rates from banks and RBI-authorised exchange houses before paying a university fee abroad or sending an international remittance.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230F1E33'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%23C9922F' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -18,20 +24,20 @@
       <div class="ticker-item" data-pair="CAD"><span class="pair">INR / CAD</span><span class="rate mono">60.35</span><span class="mono arrow">–</span></div>
       <div class="ticker-item" data-pair="AUD"><span class="pair">INR / AUD</span><span class="rate mono">55.21</span><span class="mono arrow">–</span></div>
       <div class="ticker-item" data-pair="SGD"><span class="pair">INR / SGD</span><span class="rate mono">61.98</span><span class="mono arrow">–</span></div>
-      <div class="ticker-item" data-pair="USD"><span class="pair">INR / USD</span><span class="rate mono">83.14</span><span class="mono arrow">–</span></div>
-      <div class="ticker-item" data-pair="GBP"><span class="pair">INR / GBP</span><span class="rate mono">106.82</span><span class="mono arrow">–</span></div>
-      <div class="ticker-item" data-pair="EUR"><span class="pair">INR / EUR</span><span class="rate mono">90.47</span><span class="mono arrow">–</span></div>
-      <div class="ticker-item" data-pair="CAD"><span class="pair">INR / CAD</span><span class="rate mono">60.35</span><span class="mono arrow">–</span></div>
-      <div class="ticker-item" data-pair="AUD"><span class="pair">INR / AUD</span><span class="rate mono">55.21</span><span class="mono arrow">–</span></div>
-      <div class="ticker-item" data-pair="SGD"><span class="pair">INR / SGD</span><span class="rate mono">61.98</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="USD" aria-hidden="true"><span class="pair">INR / USD</span><span class="rate mono">83.14</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="GBP" aria-hidden="true"><span class="pair">INR / GBP</span><span class="rate mono">106.82</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="EUR" aria-hidden="true"><span class="pair">INR / EUR</span><span class="rate mono">90.47</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="CAD" aria-hidden="true"><span class="pair">INR / CAD</span><span class="rate mono">60.35</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="AUD" aria-hidden="true"><span class="pair">INR / AUD</span><span class="rate mono">55.21</span><span class="mono arrow">–</span></div>
+      <div class="ticker-item" data-pair="SGD" aria-hidden="true"><span class="pair">INR / SGD</span><span class="rate mono">61.98</span><span class="mono arrow">–</span></div>
     </div>
   </div>
-  <div id="rate-status" style="text-align:center; background:var(--navy-2); color:#8E9BAF; font-family:'IBM Plex Mono'; font-size:11px; padding:4px 0; letter-spacing:0.03em;">Loading live rates…</div>
+  <div id="rate-status" aria-live="polite" style="text-align:center; background:var(--navy-2); color:#8E9BAF; font-family:'IBM Plex Mono'; font-size:11px; padding:4px 0; letter-spacing:0.03em;">Loading live rates…</div>
 
   <header>
     <div class="wrap nav-row">
       <a href="index.html" class="logo">FTH <span>Wire Services</span></a>
-      <nav class="links">
+      <nav class="links" id="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About Us</a>
         <a href="#forex-card">Forex Card</a>
@@ -41,12 +47,15 @@
       <div class="nav-right">
         <a href="tel:08448289666" class="phone-link">084482 89666</a>
         <a href="contact.html" class="btn btn-gold">Request Callback</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
 
   <section class="hero" id="home">
-    <div class="wrap hero-grid">
+    <div class="wrap hero-grid reveal-group">
       <div>
         <span class="eyebrow">Est. 2011 · Delhi-based</span>
         <h1>Paying a university<br>fee abroad? Don't<br>go through your <em>bank.</em></h1>
@@ -81,7 +90,7 @@
   </section>
 
   <div class="stats">
-    <div class="wrap stats-row">
+    <div class="wrap stats-row reveal-group">
       <div class="stat">
         <div class="num">₹1,000 Cr+</div>
         <div class="label">exchanged so far</div>
@@ -99,11 +108,11 @@
 
   <section class="pad" id="about">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>What we actually do</h2>
         <p>Three things, mostly. If your need doesn't fit neatly into one of these, just call us — we'll tell you honestly if we can help or not.</p>
       </div>
-      <div class="services-grid">
+      <div class="services-grid reveal-group">
         <div class="service-card">
           <span class="service-num">01</span>
           <h3>University Fee Payments</h3>
@@ -128,11 +137,11 @@
 
   <div class="process-wrap" id="process">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <h2>How a tuition payment actually goes</h2>
         <p>Same four steps whether it's tuition or a personal remittance. Only the destination account changes.</p>
       </div>
-      <div class="process-grid">
+      <div class="process-grid reveal-group">
         <div class="step">
           <span class="step-num">01</span>
           <h4>Compare</h4>
@@ -160,10 +169,10 @@
   <section class="pad">
     <div class="wrap kyc">
       <div>
-        <div class="section-head" style="margin-bottom:28px;">
+        <div class="section-head reveal" style="margin-bottom:28px;">
           <h2 style="font-size:30px;">Documents you'll need</h2>
         </div>
-        <ul class="kyc-list">
+        <ul class="kyc-list reveal-group">
           <li><span class="mark"></span> University letter or prospectus showing the fee amount</li>
           <li><span class="mark"></span> Indian passport copy of the student</li>
           <li><span class="mark"></span> ID proof of the sender — Aadhaar, driving licence, voter ID, or passport</li>
@@ -171,7 +180,7 @@
         </ul>
         <p class="kyc-note">The sender can be the student or a parent — the amount must come from the sender's own account.</p>
       </div>
-      <div class="kyc-card">
+      <div class="kyc-card reveal">
         <h3>Not sure which documents you need?</h3>
         <p>Send us your university's fee letter and we'll confirm exactly what's required for your specific transfer, before you start the KYC process.</p>
         <div style="margin-top:22px;">
@@ -183,16 +192,16 @@
 
   <section class="pad" style="background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
     <div class="wrap">
-      <div class="section-head" style="margin-bottom:40px;">
+      <div class="section-head reveal" style="margin-bottom:40px;">
         <h2>A few things people ask about</h2>
       </div>
       <div class="why-grid">
-        <ul class="why-list">
+        <ul class="why-list reveal-group">
           <li><strong>Rates you can actually compare.</strong> We show quotes from a few banks and exchange houses side by side, so you're not just taking whatever number your bank gives you.</li>
           <li><strong>KYC without standing in a queue.</strong> Someone can come to your home for document verification if you're in Delhi NCR — otherwise it's at the nearest partner branch.</li>
           <li><strong>We tell you the real timeline.</strong> 48 working hours is typical, not guaranteed. Some receiving banks are just slower, and we'll say so upfront.</li>
         </ul>
-        <div class="testimonials">
+        <div class="testimonials reveal-group">
           <div class="testimonial">
             <p>"Was paying my daughter's first semester fee to a university in Melbourne. Rate was better than what my bank quoted and someone came home for the KYC, which saved a trip."</p>
             <span class="who">— Ramesh Iyer, parent, Rohini</span>
@@ -212,10 +221,10 @@
 
   <section class="pad" id="faq">
     <div class="wrap">
-      <div class="section-head" style="margin-bottom:36px;">
+      <div class="section-head reveal" style="margin-bottom:36px;">
         <h2>Questions we get a lot</h2>
       </div>
-      <div class="faq-list">
+      <div class="faq-list reveal-group">
         <div class="faq-item">
           <h4>Is there a minimum amount?</h4>
           <p>No fixed minimum for tuition payments. For personal remittance there's sometimes a practical floor depending on which exchange house gives the best rate that day — we'll tell you at the time.</p>
@@ -237,7 +246,7 @@
   </section>
 
   <div class="cta-band" id="contact">
-    <div class="wrap cta-row">
+    <div class="wrap cta-row reveal">
       <h2>Got a fee payment coming up? Call us before you go to the bank.</h2>
       <div style="display:flex; gap:14px; flex-wrap:wrap;">
         <a href="tel:08447786270" class="btn" style="background:var(--navy); color:var(--paper);">Call 084477 86270</a>
@@ -284,5 +293,7 @@
   </footer>
 
   <script src="rates.js"></script>
+  <script src="nav.js"></script>
+  <script src="animations.js"></script>
 </body>
 </html>
