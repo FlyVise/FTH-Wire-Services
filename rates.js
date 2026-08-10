@@ -40,8 +40,6 @@
     });
 
     previousRates = rates;
-    window.FTH_RATES = rates;
-    window.dispatchEvent(new CustomEvent('fth:rates', {detail: rates}));
 
     var timeStr = timestamp.toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit'});
     if (statusEl) statusEl.textContent = 'Live rates · updated ' + timeStr + ' IST · refreshes every 60s';
@@ -70,7 +68,6 @@
       .catch(function(err){
         if (statusEl) statusEl.textContent = 'Live rates unavailable right now — showing last known indicative rates.';
         if (heroNoteEl) heroNoteEl.textContent = 'Indicative rate — actual rate is locked at the time of booking.';
-        window.dispatchEvent(new CustomEvent('fth:rates-unavailable'));
       });
   }
 
