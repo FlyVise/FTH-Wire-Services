@@ -2,7 +2,6 @@
   var PAIRS = ["USD","GBP","EUR","CAD","AUD","SGD"];
   var previousRates = null;
   var statusEl = document.getElementById('rate-status');
-  var heroNoteEl = document.getElementById('hero-rate-note');
 
   function fmt(n){
     return n.toLocaleString('en-IN', {minimumFractionDigits:2, maximumFractionDigits:2});
@@ -33,17 +32,12 @@
           }
         }
       });
-
-      // Hero rate card (only present on the homepage)
-      var cardEl = document.querySelector('.val[data-rate="' + code + '"]');
-      if (cardEl) cardEl.textContent = '₹' + fmt(value);
     });
 
     previousRates = rates;
 
     var timeStr = timestamp.toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit'});
     if (statusEl) statusEl.textContent = 'Live rates · updated ' + timeStr + ' IST · refreshes every 60s';
-    if (heroNoteEl) heroNoteEl.textContent = 'Live mid-market rate as of ' + timeStr + ' — your booked rate may vary slightly.';
   }
 
   function fetchRates(){
@@ -67,7 +61,6 @@
       })
       .catch(function(err){
         if (statusEl) statusEl.textContent = 'Live rates unavailable right now — showing last known indicative rates.';
-        if (heroNoteEl) heroNoteEl.textContent = 'Indicative rate — actual rate is locked at the time of booking.';
       });
   }
 

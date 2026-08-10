@@ -199,7 +199,7 @@ nav.links a.current{color:var(--navy);}
   background:var(--paper-2); border-bottom:1px solid var(--line); border-top:1px solid var(--line);
 }
 .stats-row{
-  display:grid; grid-template-columns:repeat(3,1fr);
+  display:grid; grid-template-columns:repeat(4,1fr);
   padding:44px 0;
 }
 .stat{text-align:center; border-right:1px solid var(--line);}
@@ -216,6 +216,7 @@ section.pad{padding:96px 0;}
 
 /* ---------- Services ---------- */
 .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--line);}
+.services-grid.cols-2{grid-template-columns:repeat(2,1fr);}
 .service-card{
   padding:38px 32px; border-right:1px solid var(--line);
   background:var(--paper);
@@ -253,26 +254,17 @@ section.pad{padding:96px 0;}
 .step h4{color:var(--paper); font-size:16.5px; margin-bottom:8px; font-family:'IBM Plex Sans'; font-weight:600;}
 .step p{color:#B9C2D1; font-size:13.8px;}
 
-/* ---------- KYC ---------- */
-.kyc{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:start;}
-.kyc-list{list-style:none; margin:0; padding:0;}
-.kyc-list li{
-  display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--line);
-  font-size:14.8px;
-}
-.kyc-list li:first-child{padding-top:0;}
-.kyc-list .mark{
+/* ---------- Checkmark bullet (used by .purpose-list) ---------- */
+.mark{
   width:20px; height:20px; border-radius:50%; border:1.5px solid var(--gold);
-  flex:none; margin-top:2px; position:relative;
+  flex:none; position:relative;
 }
-.kyc-list .mark::after{
+.mark::after{
   content:""; position:absolute; left:5px; top:2px; width:5px; height:9px;
   border-right:2px solid var(--gold); border-bottom:2px solid var(--gold); transform:rotate(40deg);
 }
-.kyc-note{
-  margin-top:22px; font-size:13.5px; color:var(--ink-soft); font-style:italic;
-  border-left:3px solid var(--gold); padding-left:16px;
-}
+
+/* ---------- KYC card (reused as a general trust/info card) ---------- */
 .kyc-card{
   background:var(--paper-2); border:1px solid var(--line); padding:34px; border-radius:4px;
   transition:box-shadow .22s ease;
@@ -281,8 +273,7 @@ section.pad{padding:96px 0;}
 .kyc-card h3{font-size:19px; margin-bottom:14px;}
 .kyc-card p{color:var(--ink-soft); font-size:14.5px; margin-bottom:0;}
 
-/* ---------- Why / testimonials ---------- */
-.why-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;}
+/* ---------- Why list (value props / principles) ---------- */
 .why-list{list-style:none; margin:0; padding:0;}
 .why-list li{
   font-size:15px; color:var(--ink-soft); padding:18px 0; border-bottom:1px solid var(--line);
@@ -290,23 +281,39 @@ section.pad{padding:96px 0;}
 .why-list li:first-child{padding-top:0;}
 .why-list li:last-child{border-bottom:none;}
 .why-list strong{color:var(--navy); font-weight:600;}
-.testimonials{display:flex; flex-direction:column; gap:20px;}
-.testimonial{
-  background:var(--paper); border:1px solid var(--line); border-left:3px solid var(--gold);
-  padding:20px 22px; border-radius:2px;
-  transition:box-shadow .22s ease;
-}
-.testimonial:hover{box-shadow:0 12px 26px rgba(15,30,51,0.08);}
-.testimonial p{font-size:14.5px; color:var(--ink); margin:0 0 10px; font-style:italic;}
-.testimonial .who{font-size:12.5px; color:var(--ink-soft); font-family:'IBM Plex Mono';}
 
-/* ---------- FAQ ---------- */
-.faq-list{max-width:760px;}
-.faq-item{padding:22px 0; border-bottom:1px solid var(--line);}
-.faq-item:first-child{padding-top:0;}
-.faq-item h4{font-size:16.5px; margin-bottom:8px; transition:color .2s ease;}
-.faq-item:hover h4{color:var(--gold);}
-.faq-item p{font-size:14.5px; color:var(--ink-soft); margin:0; max-width:640px;}
+/* ---------- Service tag badge ---------- */
+.service-tag{
+  display:inline-block; font-family:'IBM Plex Mono'; font-size:10.5px; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.06em; color:var(--gold); border:1px solid var(--gold);
+  border-radius:2px; padding:3px 8px; margin-left:10px; vertical-align:middle;
+}
+
+/* ---------- Feature grid (icon-less feature list) ---------- */
+.feature-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:36px 32px;}
+.feature h4{font-size:16.5px; margin-bottom:8px;}
+.feature p{color:var(--ink-soft); font-size:14.5px; margin:0;}
+
+/* ---------- LRS limit banner ---------- */
+.limit-banner{
+  background:var(--paper-2); border:1px solid var(--gold); border-radius:4px;
+  padding:30px 32px; text-align:center; max-width:600px; margin:0 auto;
+}
+.limit-banner .amount{font-family:'Fraunces'; font-size:32px; color:var(--navy); font-weight:600;}
+.limit-banner p{color:var(--ink-soft); font-size:14px; margin-top:8px;}
+
+/* ---------- Purpose list (checklist grid) ---------- */
+.purpose-list{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2px 32px;
+  list-style:none; margin:0; padding:0;
+}
+.purpose-list li{
+  display:flex; align-items:center; gap:12px; font-size:14.5px; color:var(--ink-soft);
+  padding:11px 0; border-bottom:1px solid var(--line);
+}
+
+/* ---------- Trust grid (About page) ---------- */
+.trust-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:32px;}
 
 /* ---------- CTA / contact band ---------- */
 .cta-band{
@@ -402,29 +409,6 @@ footer{background:var(--navy-2); color:#B9C2D1; padding:64px 0 30px;}
 #form-status{font-size:13px; margin-top:14px; display:none;}
 #form-status.show{display:block;}
 
-.map-band{
-  background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-  padding:56px 0;
-}
-.map-row{display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:center;}
-.map-row h3{font-size:22px; margin-bottom:10px;}
-.map-row p{color:var(--ink-soft); font-size:14.5px; max-width:440px;}
-.area-tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
-.area-tag{
-  font-family:'IBM Plex Mono'; font-size:12px; border:1px solid var(--line); background:var(--paper);
-  padding:5px 11px; border-radius:2px; color:var(--ink-soft);
-  transition:border-color .2s ease, color .2s ease;
-}
-.area-tag:hover{border-color:var(--gold); color:var(--navy);}
-.hours-card{
-  background:var(--navy); color:var(--paper); border-radius:4px; padding:28px 26px;
-}
-.hours-card h4{color:var(--paper); font-size:15px; margin-bottom:16px;}
-.hours-row{display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(247,243,234,0.12); font-size:13.8px;}
-.hours-row:last-child{border-bottom:none;}
-.hours-row .d{color:#B9C2D1;}
-.hours-row .t{font-family:'IBM Plex Mono'; color:var(--gold-2);}
-
 @media (max-width: 880px){
   .hero-grid{grid-template-columns:1fr;}
   .hero h1{font-size:38px;}
@@ -442,22 +426,24 @@ footer{background:var(--navy-2); color:#B9C2D1; padding:64px 0 30px;}
   .stats-row{grid-template-columns:1fr; }
   .stat{border-right:none; border-bottom:1px solid var(--line); padding-bottom:24px; margin-bottom:24px;}
   .stat:last-child{border-bottom:none;}
-  .services-grid{grid-template-columns:1fr;}
+  .services-grid,
+  .services-grid.cols-2{grid-template-columns:1fr;}
   .service-card{border-right:none; border-bottom:1px solid var(--line);}
   .service-card:last-child{border-bottom:none;}
   .process-grid{grid-template-columns:1fr 1fr; row-gap:34px;}
   .step:nth-child(2)::after{display:none;}
-  .kyc{grid-template-columns:1fr;}
-  .why-grid{grid-template-columns:1fr;}
+  .feature-grid{grid-template-columns:1fr; gap:28px;}
+  .purpose-list{grid-template-columns:1fr; gap:0;}
+  .trust-grid{grid-template-columns:1fr;}
   .cta-row{flex-direction:column; align-items:flex-start;}
   .foot-grid{grid-template-columns:1fr 1fr;}
   .contact-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
-  .map-row{grid-template-columns:1fr;}
   .page-hero h1{font-size:30px;}
 }
 
 @media (max-width: 560px){
   .nav-right{gap:12px;}
   .phone-link{display:none;}
+  .nav-right .btn{display:none;}
 }
