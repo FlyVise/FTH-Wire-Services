@@ -35,9 +35,19 @@ No API key or backend is required — this all runs in the visitor's browser.
 
 ## Contact form
 
-The form on `contact.html` doesn't submit to a server. On submit, it builds a `mailto:` link from the entered fields and opens the visitor's email client with the message pre-filled, addressed to `info@fthwireservices.com`. Nothing is sent until the visitor hits send in their own email app.
+The form on `contact.html` submits to [Formspree](https://formspree.io/) — a free form backend, no server code needed. On submit it `fetch()`-POSTs the form fields to a Formspree endpoint and shows a success message once Formspree accepts it.
 
-If you'd rather have real form submissions land somewhere (e.g. a spreadsheet, inbox, or database), swap this out for a form backend like [Formspree](https://formspree.io/), [Getform](https://getform.io/), or a small serverless function — the existing field names and layout in `contact.html` will drop in easily.
+**To go live:** create a free Formspree account, add a new form, and copy its form ID. In `contact.html`, find this line near the bottom of the file and replace `YOUR_FORM_ID` with your real ID:
+
+```js
+var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+```
+
+Until you do that, submissions will fail against the placeholder endpoint and the form automatically falls back to opening a `mailto:` link addressed to `info@fthwireservices.com` instead, so the form never dead-ends for a visitor.
+
+## WhatsApp chat
+
+Every page has a floating "Chat on WhatsApp" button (bottom-right) that opens a pre-filled chat with `08447 786270` via a `wa.me` click-to-chat link — no setup required. To change the number, update the `wa.me/91...` link inside the `.whatsapp-fab` anchor in each HTML file (and in `styles.css` if you want to restyle it).
 
 ## Running locally
 

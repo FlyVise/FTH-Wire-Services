@@ -447,3 +447,33 @@ footer{background:var(--navy-2); color:#B9C2D1; padding:64px 0 30px;}
   .phone-link{display:none;}
   .nav-right .btn{display:none;}
 }
+
+/* ---------- WhatsApp CTA ---------- */
+.whatsapp-fab{
+  position:fixed; right:22px; bottom:22px; z-index:40;
+  display:flex; align-items:center; justify-content:center;
+  width:56px; height:56px; border-radius:50%;
+  background:#25D366; box-shadow:0 8px 20px rgba(15,30,51,0.28);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.whatsapp-fab:hover{transform:translateY(-3px); box-shadow:0 12px 26px rgba(15,30,51,0.34);}
+.whatsapp-fab svg{width:28px; height:28px; display:block;}
+.whatsapp-fab .wa-label{
+  position:absolute; right:66px; white-space:nowrap;
+  background:var(--navy); color:var(--paper); font-family:'IBM Plex Sans', sans-serif;
+  font-size:13px; font-weight:600; padding:8px 14px; border-radius:3px;
+  opacity:0; pointer-events:none; transform:translateX(6px);
+  transition:opacity .18s ease, transform .18s ease;
+}
+.whatsapp-fab:hover .wa-label, .whatsapp-fab:focus-visible .wa-label{
+  opacity:1; transform:translateX(0);
+}
+@media (max-width: 560px){
+  .whatsapp-fab{right:16px; bottom:16px; width:52px; height:52px;}
+  .whatsapp-fab .wa-label{display:none;}
+}
+
+/* ---------- Form status ---------- */
+#form-status.success{color:var(--teal); font-weight:600;}
+#form-status.error{color:#B3402A; font-weight:600;}
+.btn[disabled]{opacity:0.6; cursor:not-allowed; box-shadow:none;}
